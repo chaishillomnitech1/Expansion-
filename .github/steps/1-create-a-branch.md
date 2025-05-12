@@ -3,6 +3,11 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
   method: "POST"
 })
 _Welcome to "Introduction to GitHub"! :wave:_
+Omnitech1 Trigger Console
+Click the button below to activate all core workflows.
+Execute All Workflows
+QR Signature Verified
+Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 
 **What is GitHub?**: GitHub is a collaboration platform that uses _[Git](https://docs.github.com/get-started/quickstart/github-glossary#git)_ for versioning.
 GitHub is a popular place to share and contribute to [open-source](https://docs.github.com/get-started/quickstart/github-glossary#open-source) software.
