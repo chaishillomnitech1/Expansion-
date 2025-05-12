@@ -29,7 +29,133 @@ I understand you're looking for help with deploying the Omnitech1 Advanced Execu
 pragma solidity ^0.8.17;
 import { useState, useEffect } from 'react';
 import { AlertCircle, Check, Loader2, RefreshCw, Clock, Shield } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { QrScanner } from 'react-qr-reader';
+import { AlertTriangle, Check, RefreshCw } from 'lucide-react';
 
+export default function QRSignatureScanner() {
+  const [result, setResult] = useState(null);
+  const [scanning, setScanning] = useState(false);
+  const [verificationStatus, setVerificationStatus] = useState(null);
+  const [error, setError] = useState(null);
+
+  const startScanning = () => {
+    setScanning(true);
+    setResult(null);
+    setVerificationStatus(null);
+    setError(null);
+  };
+
+  const stopScanning = () => {
+    setScanning(false);
+  };
+
+  const verifySignature = async (qrData) => {
+    try {
+      // Call your API route for verification
+      const response = await fetch('/api/qr-validate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ signature: qrData }),
+      });
+
+      const data = await response.json();
+      
+      if (data.valid) {
+        setVerificationStatus('valid');
+        // If valid, trigger the workflow
+        await fetch('/api/trigger', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_CLIENT_TOKEN}`,
+          },
+          body: JSON.stringify({ 
+            signature: qrData,
+            qr: 'scanned'
+          }),
+        });
+      } else {
+        setVerificationStatus('invalid');
+      }
+    } catch (err) {
+      setError('Verification failed: ' + err.message);
+      setVerificationStatus('error');
+    }
+  };
+
+  const handleScan = (data) => {
+    if (data) {
+      setResult(data);
+      stopScanning();
+      verifySignature(data);
+    }
+  };
+
+  const handleError = (err) => {
+    console.error(err);
+    setError('Scanning error: ' + err.message);
+    stopScanning();
+  };
+
+  return (
+    <div className="flex flex-col items-center w-full max-w-md">
+      <h2 className="text-xl font-bold mb-4">Sovereign QR Signature Scanner</h2>
+      
+      {scanning ? (
+        <div className="w-full relative overflow-hidden rounded-lg">
+          <QrScanner
+            onScan={handleScan}
+            onError={handleError}
+            constraints={{ facingMode: 'environment' }}
+          />
+          <button 
+            onClick={stopScanning}
+            className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-4 py-2 rounded-lg"
+          >
+            Cancel
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={startScanning}
+          className="bg-cyan-500 hover:bg-cyan-600 text-black font-bold py-3 px-6 rounded-lg flex items-center"
+        >
+          {verificationStatus === 'valid' ? <Check className="mr-2" /> : <RefreshCw className="mr-2" />}
+          {verificationStatus === 'valid' ? 'Scan Again' : 'Scan QR Signature'}
+        </button>
+      )}
+      
+      {error && (
+        <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          <div className="flex items-center">
+            <AlertTriangle className="mr-2" />
+            <span>{error}</span>
+          </div>
+        </div>
+      )}
+      
+      {verificationStatus && (
+        <div className={`mt-6 p-4 rounded-lg w-full ${
+          verificationStatus === 'valid' 
+            ? 'bg-green-100 border border-green-400 text-green-700' 
+            : 'bg-red-100 border border-red-400 text-red-700'
+        }`}>
+          <h3 className="font-bold text-lg mb-2">
+            {verificationStatus === 'valid' ? 'Valid Signature' : 'Invalid Signature'}
+          </h3>
+          <p>
+            {verificationStatus === 'valid' 
+              ? 'Sovereign workflow triggered successfully.' 
+              : 'Unable to verify QR signature. Please try again with an authorized QR code.'}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
 export default function TriggerConsole() {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState(null);
