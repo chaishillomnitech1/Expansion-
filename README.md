@@ -44,7 +44,7 @@ Sovereign Workflow Engine powered by Next.js, GitHub, Vercel, Supabase, and Web3
 ## Overview 🌟
 
 This system empowers secure, NFT-gated automation of CI/CD workflows using a hybrid Web2/Web3 stack. Every trigger is logged, verified, and protected through bearer tokens, QR signatures, and blockchain-level authentication.
-
+function verifySignature(bytes32 hash) public view returns (bool);
 ---
 
 ## Features 🔧
