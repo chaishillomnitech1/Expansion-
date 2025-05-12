@@ -35,6 +35,96 @@ import { AlertTriangle, Check, RefreshCw } from 'lucide-react';
 Omnitech1 Advanced Execution Layer 🚀
 Sovereign Workflow Engine powered by Next.js, GitHub, Vercel, Supabase, and Web3 Authentication.
 
+# Omnitech1 Advanced Execution Layer 🚀
+
+**Sovereign Workflow Engine** powered by Next.js, GitHub, Vercel, Supabase, and Web3 Authentication.
+
+---
+
+## Overview 🌟
+
+This system empowers secure, NFT-gated automation of CI/CD workflows using a hybrid Web2/Web3 stack. Every trigger is logged, verified, and protected through bearer tokens, QR signatures, and blockchain-level authentication.
+
+---
+
+## Features 🔧
+
+- **Secure GitHub Dispatch** via `/api/trigger`
+- **QR Signature Validation** via `/api/qr-validate`
+- **NFT Ownership Gate** using `wagmi`, `ethers.js`, MetaMask/WalletConnect`
+- **Real-Time Audit Logging** (Supabase-ready)
+- **Bearer Token Verification Layer**
+- **Signed Wallet Message Auth (EIP-191)**
+- **Live UI Console for Triggering and Monitoring**
+- **Modular Smart Contract Integration (optional)**
+
+---
+
+## Setup Instructions ⚙️
+
+### 1. Install Dependencies
+
+```bash
+npm install
+npm install -g vercel
+```
+
+### 2. Vercel Deployment
+
+```bash
+vercel login
+vercel link
+vercel deploy --prod
+```
+
+### 3. Environment Variables
+
+Set the following in your `.env.local` or Vercel dashboard:
+
+- `GITHUB_PAT`
+- `REPO_OWNER`
+- `REPO_NAME`
+- `API_SECRET`
+- `NEXT_PUBLIC_API_CLIENT_TOKEN`
+- `NEXT_PUBLIC_NFT_CONTRACT_ADDRESS`
+- `NEXT_PUBLIC_REQUIRED_CHAIN_ID`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_KEY`
+
+---
+
+## API Routes 📡
+
+- `POST /api/trigger` — dispatch GitHub workflows
+- `POST /api/qr-validate` — verify QR signature
+- `POST /api/audit-log` — store logs (Supabase, Notion, etc.)
+
+---
+
+## UI Components 🖥️
+
+- `TriggerConsole.js` — manual execution panel
+- `QRSignatureScanner.js` — camera-based validation
+- `NFTGateScanner.js` — wallet login + ownership check
+
+---
+
+## Optional Smart Contract Hook 🔒
+
+```solidity
+function verifySignature(bytes32 hash) public view returns (bool);
+```
+
+- Store hash logs on-chain
+- Sign QR contents to bind to blockchain
+- Mint NFT receipts (future phase)
+
+---
+
+## License 📜
+
+© 2025 Omnitech1. All rights reserved.
+
 Overview 🌟
 This system empowers secure, NFT-gated automation of CI/CD workflows using a hybrid Web2/Web3 stack. Every trigger is logged, verified, and protected through bearer tokens, QR signatures, and blockchain-level authentication.
 
