@@ -20,7 +20,19 @@ https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/trigger.html
 - Use environment variables (`process.env`) for all `GITHUB_PAT` access  
 - Never expose tokens in frontend code  
 - Use encrypted storage when necessary
+trigger:
+  branches:
+    include:
+      - main
 
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: |
+      curl -X POST https://api.vercel.com/v1/integrations/deploy/${{ secrets.VERCEL_PROJECT_ID }} \
+      -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}"
+    displayName: 'Trigger Vercel Deploy'
 **Backend Route Protection:**  
 - Create Vercel API routes (`/api/trigger.js`)  
 - Add basic token matching or OAuth header validation  
