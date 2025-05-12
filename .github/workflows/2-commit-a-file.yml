@@ -22,6 +22,8 @@ permissions:
   contents: read
   actions: write
   issues: write
+Omnitech1: Trigger Workflows
+Execute All Workflows
 
 env:
   STEP_3_FILE: ".github/steps/3-open-a-pull-request.md"
