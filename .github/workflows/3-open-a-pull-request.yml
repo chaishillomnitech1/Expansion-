@@ -6,7 +6,9 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
 # - Triggers when the user creates or edits the pull request.
 # - Checks the pull request title and description. Adds a PR comment.
 # - If all checks pass, the workflow is disabled so it doesn't run again. As such, workflow status badge will change to green.
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 on:
   pull_request:
     branches:
