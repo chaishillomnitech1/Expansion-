@@ -1,5 +1,7 @@
 ## Step 1: Create a branch
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 _Welcome to "Introduction to GitHub"! :wave:_
 
 **What is GitHub?**: GitHub is a collaboration platform that uses _[Git](https://docs.github.com/get-started/quickstart/github-glossary#git)_ for versioning.
