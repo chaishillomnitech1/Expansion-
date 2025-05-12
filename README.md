@@ -27,7 +27,160 @@ trigger:
 I understand you're looking for help with deploying the Omnitech1 Advanced Execution Layer to Vercel. Let me guide you through the Vercel deployment process for this project.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
+import { useState, useEffect } from 'react';
+import { AlertCircle, Check, Loader2, RefreshCw, Clock, Shield } from 'lucide-react';
 
+export default function TriggerConsole() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const [lastTriggered, setLastTriggered] = useState(null);
+  const [auditLogs, setAuditLogs] = useState([]);
+  const [error, setError] = useState(null);
+
+  // Fetch recent audit logs on component mount
+  useEffect(() => {
+    fetchAuditLogs();
+  }, []);
+
+  const fetchAuditLogs = async () => {
+    try {
+      const response = await fetch('/api/get-audit-logs', {
+        headers: {
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_CLIENT_TOKEN}`
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setAuditLogs(data.logs.slice(0, 5)); // Only show 5 most recent logs
+      }
+    } catch (err) {
+      console.error('Failed to fetch audit logs:', err);
+    }
+  };
+
+  const triggerWorkflow = async () => {
+    setIsLoading(true);
+    setError(null);
+    setResult(null);
+    
+    try {
+      const response = await fetch('/api/trigger', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_CLIENT_TOKEN}`
+        },
+        body: JSON.stringify({
+          qr: 'manual-console',
+          workflowType: 'all',
+          timestamp: new Date().toISOString()
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setResult('success');
+        setLastTriggered(new Date().toISOString());
+        // Refresh audit logs after successful trigger
+        fetchAuditLogs();
+      } else {
+        setResult('error');
+        setError(data.error || 'Failed to trigger workflow');
+      }
+    } catch (err) {
+      setResult('error');
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="bg-gray-900 text-cyan-500 p-6 rounded-lg shadow-lg max-w-md w-full">
+      <h2 className="text-2xl font-bold mb-6 text-center">Omnitech1 Workflow Trigger Console</h2>
+      
+      <div className="mb-8">
+        <button
+          onClick={triggerWorkflow}
+          disabled={isLoading}
+          className="w-full bg-cyan-500 text-black font-bold py-4 px-6 rounded-lg flex items-center justify-center disabled:opacity-50"
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 animate-spin" />
+              Processing...
+            </>
+          ) : (
+            <>
+              <RefreshCw className="mr-2" />
+              Trigger All Workflows
+            </>
+          )}
+        </button>
+        
+        {result === 'success' && (
+          <div className="mt-4 p-3 bg-green-800 bg-opacity-30 border border-green-600 text-green-400 rounded">
+            <div className="flex items-center">
+              <Check className="mr-2" />
+              <span>Workflows triggered successfully!</span>
+            </div>
+          </div>
+        )}
+        
+        {result === 'error' && (
+          <div className="mt-4 p-3 bg-red-800 bg-opacity-30 border border-red-600 text-red-400 rounded">
+            <div className="flex items-center">
+              <AlertCircle className="mr-2" />
+              <span>{error || 'An error occurred'}</span>
+            </div>
+          </div>
+        )}
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold mb-3 flex items-center">
+          <Clock className="mr-2" /> Recent Activity
+        </h3>
+        
+        {auditLogs.length > 0 ? (
+          <div className="space-y-3">
+            {auditLogs.map((log, index) => (
+              <div key={index} className="p-3 bg-gray-800 rounded border border-gray-700">
+                <div className="flex justify-between items-start mb-1">
+                  <span className="font-medium">
+                    {new Date(log.timestamp).toLocaleString()}
+                  </span>
+                  <span className={`text-xs px-2 py-1 rounded ${
+                    log.status === 'success' ? 'bg-green-800 text-green-300' : 'bg-yellow-800 text-yellow-300'
+                  }`}>
+                    {log.status}
+                  </span>
+                </div>
+                <div className="text-sm text-gray-400">
+                  Source: {log.qr_identifier}
+                </div>
+                {log.signature_hash && log.signature_hash !== 'unsigned' && (
+                  <div className="flex items-center text-xs text-gray-500 mt-1">
+                    <Shield className="w-3 h-3 mr-1" />
+                    Verified signature
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-gray-500 italic">No recent activity</p>
+        )}
+      </div>
+      
+      <div className="mt-6 pt-4 border-t border-gray-700 text-center text-xs text-gray-500">
+        Omnitech1 | Sovereign Trigger Framework
+      </div>
+    </div>
+  );
+}
 /**
  * @title Omnitech1SignatureRegistry
  * @dev Stores and verifies QR signatures for the Omnitech1 Advanced Execution Layer
