@@ -27,7 +27,304 @@ trigger:
 I understand you're looking for help with deploying the Omnitech1 Advanced Execution Layer to Vercel. Let me guide you through the Vercel deployment process for this project.
 
 ## Vercel Deployment Guide for Omnitech1
+I understand you're looking for help with deploying the Omnitech1 Advanced Execution Layer to Vercel. Let me guide you through the Vercel deployment process for this project.
 
+## Vercel Deployment Guide for Omnitech1
+
+### Step 1: Initial Setup
+
+First, ensure you have the Vercel CLI installed:
+
+```bash
+npm install -g vercel
+```
+
+Then follow these commands to authenticate and link your project:
+
+```bash
+# Log into your Vercel account
+vercel login
+
+# Link your local project to Vercel
+vercel link
+```
+
+When you run `vercel link`, the CLI will prompt you to:
+1. Select or create a scope (team or personal account)
+2. Set up a new or existing project
+
+### Step 2: Environment Configuration
+
+For the security features mentioned in your documentation:
+
+```bash
+# Set up environment variables securely
+vercel env add GITHUB_PAT
+```
+
+When prompted, enter your GitHub Personal Access Token securely. This keeps your token shielded as specified in your documentation.
+
+### Step 3: API Routes Setup
+
+Create the API routes for your trigger system:
+
+1. Create a directory structure:
+```
+/api/trigger.js
+/api/qr-validate.js
+/api/audit-log.js
+```
+
+2. Example API route for the protected trigger:
+
+```javascript
+// api/trigger.js
+export default async function handler(req, res) {
+  // Token validation
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Unauthorized access' });
+  }
+  
+  const token = authHeader.split(' ')[1];
+  if (token !== process.env.API_SECRET) {
+    return res.status(403).json({ error: 'Invalid token' });
+  }
+  
+  // GitHub repository dispatch
+  try {
+    const response = await fetch(`https://api.github.com/repos/${process.env.REPO_OWNER}/${process.env.REPO_NAME}/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${process.env.GITHUB_PAT}`,
+        'Accept': 'application/vnd.github.v3+json'
+      },
+      body: JSON.stringify({
+        event_type: 'trigger-all-workflows',
+        client_payload: {
+          source: 'vercel-api',
+          timestamp: new Date().toISOString(),
+          signature: req.body?.signature || 'unsigned'
+        }
+      })
+    });
+    
+    if (response.ok) {
+      // Log the successful trigger
+      await logDispatch({
+        timestamp: new Date().toISOString(),
+        qr: req.body?.qr || 'manual-api-call',
+        status: 'success',
+        workflowType: 'all',
+        signature: req.body?.signature || 'unsigned'
+      });
+      
+      return res.status(200).json({ success: true });
+    } else {
+      return res.status(response.status).json({ error: 'GitHub API error' });
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+}
+
+// Helper function for logging
+async function logDispatch(data) {
+  // Implement your logging logic here (Supabase, Notion, etc.)
+  console.log('Dispatch logged:', data);
+}
+```
+
+### Step 4: QR Signature Validation Implementation
+
+For the QR validation component:​​​​​​​​​​​​​​​​
+
+### Step 5: Audit Logging System​​​​​​​​​​​​​​​​
+
+### Step 6: Smart Contract for QR Verification (Optional)
+
+### Step 7: Frontend Trigger Console​​​​​​​​​​​​​​​​
+
+### Step 8: NFT Gate Implementation (Optional)
+
+<antArtifact>
+import { useState, useEffect } from 'react';
+import { useAccount, useConnect, useContractRead } from 'wagmi';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { ethers } from 'ethers';
+import { Loader2, Lock, Shield, Unlock, AlertTriangle } from 'lucide-react';
+
+// ABI for a minimal ERC721 interface
+const NFT_ABI = [
+  {
+    "inputs": [{"internalType": "address", "name": "owner", "type": "address"}],
+    "name": "balanceOf",
+    "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
+export default function NFTGateScanner() {
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [verificationStatus, setVerificationStatus] = useState(null);
+  const [error, setError] = useState(null);
+  
+  // NFT contract configuration
+  const nftContractAddress = process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS;
+  const requiredChainId = parseInt(process.env.NEXT_PUBLIC_REQUIRED_CHAIN_ID || '137'); // Default to Polygon
+  
+  // Wallet connection
+  const { connect, connectors, pendingConnector } = useConnect();
+  const { address, isConnected, chain } = useAccount();
+  
+  // Check NFT balance
+  const { data: nftBalance, isLoading: isLoadingBalance } = useContractRead({
+    address: nftContractAddress,
+    abi: NFT_ABI,
+    functionName: 'balanceOf',
+    args: [address || ethers.constants.AddressZero],
+    enabled: isConnected && !!address,
+  });
+  
+  // Effect to verify NFT ownership when balance loads
+  useEffect(() => {
+    if (isConnected && nftBalance && !isLoadingBalance) {
+      verifyNFTOwnership();
+    }
+  }, [isConnected, nftBalance, isLoadingBalance]);
+  
+  // Check if user is on the right network
+  const isCorrectNetwork = isConnected && chain && chain.id === requiredChainId;
+  
+  const verifyNFTOwnership = async () => {
+    setIsVerifying(true);
+    setError(null);
+    
+    try {
+      // First check if user is on the right network
+      if (!isCorrectNetwork) {
+        setError(`Please switch to the required network (Chain ID: ${requiredChainId})`);
+        setVerificationStatus('error');
+        return;
+      }
+      
+      // Check if user owns at least one NFT
+      const hasNFT = nftBalance && nftBalance.gt(0);
+      
+      if (hasNFT) {
+        setVerificationStatus('valid');
+        
+        // If NFT ownership is verified, proceed with signature authentication
+        await triggerWithNFTSignature();
+      } else {
+        setVerificationStatus('invalid');
+        setError('No Omnitech1 NFT found in your wallet');
+      }
+    } catch (err) {
+      console.error(err);
+      setError(`Verification failed: ${err.message}`);
+      setVerificationStatus('error');
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+  
+  const triggerWithNFTSignature = async () => {
+    try {
+      // Sign a message to prove ownership
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      
+      const message = `Omnitech1 Sovereign Trigger Authentication\nTimestamp: ${new Date().toISOString()}\nWallet: ${address}`;
+      const signature = await signer.signMessage(message);
+      
+      // Send the signature to your API
+      const response = await fetch('/api/trigger', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_CLIENT_TOKEN}`
+        },
+        body: JSON.stringify({
+          signature,
+          message,
+          address,
+          qr: 'nft-gate',
+          timestamp: new Date().toISOString()
+        })
+      });
+      
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to trigger workflow');
+      }
+    } catch (err) {
+      console.error(err);
+      setError(`Authentication failed: ${err.message}`);
+      setVerificationStatus('error');
+    }
+  };
+  
+  return (
+    <div className="flex flex-col items-center w-full max-w-md">
+      <h2 className="text-xl font-bold mb-4">NFT Gate Authentication</h2>
+      
+      {!isConnected ? (
+        <div className="w-full space-y-4">
+          <p className="text-center mb-4">Connect your wallet to verify NFT ownership</p>
+          
+          {connectors.map((connector) => (
+            <button
+              key={connector.id}
+              onClick={() => connect({ connector })}
+              className="w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-lg flex justify-center items-center"
+              disabled={!connector.ready}
+            >
+              {connector.name}
+              {!connector.ready && ' (unsupported)'}
+              {pendingConnector?.id === connector.id && (
+                <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+              )}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="w-full">
+          <div className="p-4 bg-gray-800 rounded-lg mb-6">
+            <p className="text-sm text-gray-400">Connected Wallet</p>
+            <p className="font-mono text-sm truncate">{address}</p>
+          </div>
+          
+          {isVerifying || isLoadingBalance ? (
+            <div className="flex flex-col items-center py-8">
+              <Loader2 className="h-8 w-8 animate-spin mb-4" />
+              <p>Verifying NFT ownership...</p>
+            </div>
+          ) : (
+            <button
+              onClick={verifyNFTOwnership}
+              disabled={isVerifying}
+              className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-bold py-3 px-6 rounded-lg flex items-center justify-center"
+            >
+              {verificationStatus === 'valid' ? (
+                <>
+                  <Unlock className="mr-2" />
+                  Verified - Trigger Again
+                </>
+              ) : (
+                <>
+                  <Lock className="mr-2" />
+                  Verify NFT & Trigger
+                </>
+              )}
+            </button>
+          )}
+          
+          {error && (
+            <div className="mt-
+</antArtifact>
 ### Step 1: Initial Setup
 
 First, ensure you have the Vercel CLI installed:
