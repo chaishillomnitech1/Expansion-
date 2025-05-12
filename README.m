@@ -234,7 +234,7 @@ In this exercise, you will:
 ## 🧠 GitHub Copilot Integration Guide (Omnitech1 AI Ops)
 
 GitHub Copilot is actively integrated into this repository to streamline task execution, debug automation, and enhance deployment flow for the Omnitech1 ecosystem.
-
+https://expansion-rklktpccd-chaishillomnitech1-d2ca6004.vercel.app
 ### ✅ Current Copilot Task Example
 
 **Command Used:**  
