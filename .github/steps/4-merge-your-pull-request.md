@@ -1,5 +1,7 @@
 ## Step 4: Merge your pull request
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 _Nicely done! :sunglasses:_
 
 You successfully created a pull request. Now it's time to merge it!
