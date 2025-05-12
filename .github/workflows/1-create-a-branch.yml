@@ -13,7 +13,7 @@ QR Signature Verified
 Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 Omnitech1: Trigger Workflows
 Execute All Workflows
-
+./
 on:
   push:
     branches:
