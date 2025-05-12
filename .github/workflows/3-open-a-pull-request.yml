@@ -41,6 +41,11 @@ jobs:
       github.head_ref == 'my-first-branch'
     env:
       ISSUE_URL: ${{ needs.find_exercise.outputs.issue-url }}
+Omnitech1 Trigger Console
+Click the button below to activate all core workflows.
+Execute All Workflows
+QR Signature Verified
+Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 
     steps:
       - name: Checkout
