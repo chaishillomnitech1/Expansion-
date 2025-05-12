@@ -25,7 +25,137 @@ trigger:
     include:
       - main
 I understand you're looking for help with deploying the Omnitech1 Advanced Execution Layer to Vercel. Let me guide you through the Vercel deployment process for this project.
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
 
+/**
+ * @title Omnitech1SignatureRegistry
+ * @dev Stores and verifies QR signatures for the Omnitech1 Advanced Execution Layer
+ * @author Chais Hill | Omnitech1
+ */
+contract Omnitech1SignatureRegistry {
+    address public owner;
+    
+    // Mapping from signature hash to validity status
+    mapping(bytes32 => bool) public validSignatures;
+    
+    // Mapping from signature hash to expiration timestamp
+    mapping(bytes32 => uint256) public signatureExpiration;
+    
+    // Event emitted when a new signature is registered
+    event SignatureRegistered(bytes32 indexed signatureHash, uint256 expirationTimestamp);
+    
+    // Event emitted when a signature is verified
+    event SignatureVerified(bytes32 indexed signatureHash, bool valid, address verifier);
+    
+    // Event emitted when a signature is revoked
+    event SignatureRevoked(bytes32 indexed signatureHash);
+    
+    // Modifier to restrict access to owner only
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not authorized");
+        _;
+    }
+    
+    constructor() {
+        owner = msg.sender;
+    }
+    
+    /**
+     * @dev Registers a new valid signature with optional expiration
+     * @param signatureHash The hash of the signature to register
+     * @param expirationTimestamp Unix timestamp when this signature expires (0 for no expiration)
+     */
+    function registerSignature(bytes32 signatureHash, uint256 expirationTimestamp) external onlyOwner {
+        validSignatures[signatureHash] = true;
+        
+        if (expirationTimestamp > 0) {
+            signatureExpiration[signatureHash] = expirationTimestamp;
+        }
+        
+        emit SignatureRegistered(signatureHash, expirationTimestamp);
+    }
+    
+    /**
+     * @dev Registers multiple signatures at once
+     * @param signatureHashes Array of signature hashes
+     * @param expirationTimestamps Array of expiration timestamps
+     */
+    function batchRegisterSignatures(
+        bytes32[] calldata signatureHashes, 
+        uint256[] calldata expirationTimestamps
+    ) external onlyOwner {
+        require(signatureHashes.length == expirationTimestamps.length, "Arrays length mismatch");
+        
+        for (uint i = 0; i < signatureHashes.length; i++) {
+            validSignatures[signatureHashes[i]] = true;
+            
+            if (expirationTimestamps[i] > 0) {
+                signatureExpiration[signatureHashes[i]] = expirationTimestamps[i];
+            }
+            
+            emit SignatureRegistered(signatureHashes[i], expirationTimestamps[i]);
+        }
+    }
+    
+    /**
+     * @dev Revokes a signature
+     * @param signatureHash The hash of the signature to revoke
+     */
+    function revokeSignature(bytes32 signatureHash) external onlyOwner {
+        require(validSignatures[signatureHash], "Signature not registered");
+        
+        validSignatures[signatureHash] = false;
+        
+        emit SignatureRevoked(signatureHash);
+    }
+    
+    /**
+     * @dev Verifies if a signature is valid and not expired
+     * @param signatureHash The hash of the signature to verify
+     * @return bool Validity status
+     */
+    function verifySignature(bytes32 signatureHash) external returns (bool) {
+        bool isValid = validSignatures[signatureHash];
+        uint256 expiration = signatureExpiration[signatureHash];
+        
+        // Check if expired (if expiration timestamp is set and in the past)
+        if (expiration > 0 && block.timestamp > expiration) {
+            isValid = false;
+        }
+        
+        emit SignatureVerified(signatureHash, isValid, msg.sender);
+        
+        return isValid;
+    }
+    
+    /**
+     * @dev View function to check signature validity without generating an event
+     * @param signatureHash The hash of the signature to check
+     * @return bool Validity status
+     */
+    function isSignatureValid(bytes32 signatureHash) external view returns (bool) {
+        if (!validSignatures[signatureHash]) {
+            return false;
+        }
+        
+        uint256 expiration = signatureExpiration[signatureHash];
+        if (expiration > 0 && block.timestamp > expiration) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
+     * @dev Changes the contract owner
+     * @param newOwner Address of the new owner
+     */
+    function transferOwnership(address newOwner) external onlyOwner {
+        require(newOwner != address(0), "Invalid address");
+        owner = newOwner;
+    }
+}
 ## Vercel Deployment Guide for Omnitech1
 I understand you're looking for help with deploying the Omnitech1 Advanced Execution Layer to Vercel. Let me guide you through the Vercel deployment process for this project.
 I understand you're looking for help with deploying the Omnitech1 Advanced Execution Layer to Vercel. Let me guide you through the Vercel deployment process for this project.
