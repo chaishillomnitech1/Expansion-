@@ -1,5 +1,7 @@
 name: Step 1 # Create a branch
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 # Checks if the learner completed tasks for step 1.
 # - Triggers when the user creates a new branch 'my-first-branch'.
 # - Checks that the branch name is 'my-first-branch'.
