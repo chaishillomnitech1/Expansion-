@@ -1,5 +1,7 @@
 ## Step 3: Open a pull request
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 _Nice work making that commit! :sparkles:_
 
 Now that you have made a change to the project and created a commit, it’s time to share your proposed change through a pull request!
