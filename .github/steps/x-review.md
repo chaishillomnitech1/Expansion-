@@ -3,6 +3,11 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
   method: "POST"
 })
 _Congratulations, you've completed this Exercise and joined the world of developers!_
+Omnitech1 Trigger Console
+Click the button below to activate all core workflows.
+Execute All Workflows
+QR Signature Verified
+Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 
 <img src=https://octodex.github.com/images/collabocats.jpg alt=celebrate width=300 align=right>
 
