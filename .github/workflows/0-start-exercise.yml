@@ -1,5 +1,7 @@
 name: Step 0 # Start Exercise
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 on:
   push:
     branches:
