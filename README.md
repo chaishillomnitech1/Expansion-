@@ -9,7 +9,10 @@ Execute All Workflows
 **Status:** Phase 3 — Fortification + Real-Time Audit + Smart Signature Logic
 https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/assets/qr/verified-directive.png
 ---
-
+<div class="qr">
+  <img src="/assets/qr/verified-directive.png" alt="Omnitech1 QR Signature" width="180" />
+  <p>Secured by: Chais Hill | Sovereign Trigger Directive</p>
+</div>
 ## Advanced Options & Implementations
 https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/trigger.html
 ### 1. Implement Additional Security
