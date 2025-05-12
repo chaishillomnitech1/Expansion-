@@ -3,6 +3,11 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
   method: "POST"
 })
 _Nice work making that commit! :sparkles:_
+Omnitech1 Trigger Console
+Click the button below to activate all core workflows.
+Execute All Workflows
+QR Signature Verified
+Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 
 Now that you have made a change to the project and created a commit, it’s time to share your proposed change through a pull request!
 
