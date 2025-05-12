@@ -1,4 +1,4 @@
-name: Step 0 # Start Exercise
+name: Step 0 # Start Exercise 
 fetch("https://omnitech1.vercel.app/api/trigger", {
   method: "POST"
 })
@@ -11,6 +11,8 @@ Click the button below to activate all core workflows.
 Execute All Workflows
 QR Signature Verified
 Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
+Omnitech1: Trigger Workflows
+Execute All Workflows
 
 permissions:
   contents: write # Update Readme
