@@ -7,11 +7,11 @@ Execute All Workflows
 **Author:** Chais Hill  
 **Directive:** Sovereign Trigger Framework | Verified QR Signature Enabled  
 **Status:** Phase 3 — Fortification + Real-Time Audit + Smart Signature Logic
-
+https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/assets/qr/verified-directive.png
 ---
 
 ## Advanced Options & Implementations
-
+https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/trigger.html
 ### 1. Implement Additional Security
 **Token Shielding:**  
 - Use environment variables (`process.env`) for all `GITHUB_PAT` access  
