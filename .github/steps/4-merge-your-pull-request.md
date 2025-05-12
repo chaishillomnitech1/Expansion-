@@ -9,6 +9,11 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
 You successfully created a pull request. Now it's time to merge it!
 
 **What is a merge?**: A _[merge](https://docs.github.com/en/get-started/quickstart/github-glossary#merge)_ adds the changes in your pull request and branch into the `main` branch. For more information about merges, see "[Merging a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
+Omnitech1 Trigger Console
+Click the button below to activate all core workflows.
+Execute All Workflows
+QR Signature Verified
+Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 
 ![screenshot of green merge pull request button](https://github.com/user-attachments/assets/ce2f04cb-8a71-411f-8dc8-827a2bc23a30)
 
