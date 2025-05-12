@@ -1,5 +1,7 @@
 ## Review
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 _Congratulations, you've completed this Exercise and joined the world of developers!_
 
 <img src=https://octodex.github.com/images/collabocats.jpg alt=celebrate width=300 align=right>
