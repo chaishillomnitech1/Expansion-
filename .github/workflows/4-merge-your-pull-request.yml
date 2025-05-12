@@ -5,6 +5,11 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
 # Checks if the learner completed tasks for step 4.
 # - Triggers when the user merges the pull request.
 # - If all checks pass, the workflow is disabled so it doesn't run again. As such, workflow status badge will change to green.
+Omnitech1 Trigger Console
+Click the button below to activate all core workflows.
+Execute All Workflows
+QR Signature Verified
+Founder: Chais Hill Sovereign Signature Directive Protected & Authenticated
 
 on:
   pull_request:
