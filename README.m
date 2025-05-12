@@ -40,6 +40,9 @@ on:
   </style>
 </head>
 <body>
+Omnitech1 | Live Workflow Monitor
+This dashboard pulls live status from your GitHub Actions for each workflow.
+Loading workflow status...
 
   <h1>Omnitech1 Automation Console</h1>
   <p>Click below to trigger all core infrastructure workflows.</p>
