@@ -1,5 +1,7 @@
 name: Step 3 # Open a pull request
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 # Checks if the learner completed tasks for step 3.
 # - Triggers when the user creates or edits the pull request.
 # - Checks the pull request title and description. Adds a PR comment.
