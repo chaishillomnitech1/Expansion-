@@ -1,0 +1,44 @@
+<script>
+  async function triggerWorkflows() {
+    const statusEl = document.getElementById("status");
+
+    // Trigger the workflows
+    const triggerResponse = await fetch("https://api.github.com/repos/chaishillomnitech1/Chaishillomnitech1/dispatches", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer YOUR_GITHUB_PERSONAL_ACCESS_TOKEN", // Replace securely
+        "Accept": "application/vnd.github.everest-preview+json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ event_type: "trigger-all-workflows" })
+    });
+
+    if (triggerResponse.ok) {
+      statusEl.innerHTML = "Trigger sent. Checking status...";
+
+      // Wait 3–5 seconds before checking status
+      setTimeout(checkWorkflowStatus, 4000);
+    } else {
+      statusEl.innerHTML = "Trigger failed. Check token or config.";
+    }
+  }
+
+  async function checkWorkflowStatus() {
+    const statusEl = document.getElementById("status");
+
+    const response = await fetch("https://api.github.com/repos/chaishillomnitech1/Chaishillomnitech1/actions/runs", {
+      headers: {
+        "Authorization": "Bearer YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"
+      }
+    });
+
+    const data = await response.json();
+    const latest = data.workflow_runs?.[0];
+
+    if (latest) {
+      statusEl.innerHTML = `Latest Run: <strong>${latest.name}</strong><br>Status: <strong>${latest.status}</strong> — Conclusion: <strong>${latest.conclusion}</strong>`;
+    } else {
+      statusEl.innerHTML = "No recent workflow runs found.";
+    }
+  }
+</script> 
