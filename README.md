@@ -37,9 +37,14 @@ steps:
 - Create Vercel API routes (`/api/trigger.js`)  
 - Add basic token matching or OAuth header validation  
 - Optionally restrict dispatch access by IP/domain
-
+chaishillomnitech1/Expansion-/
+├── README.md
+├── azure-pipelines.yml    ← This is in the repo root
+├── package.json
+├── trigger.html
+└── /src
 ---
-
+https://github.com/chaishillomnitech1/Expansion-/
 ### 2. Activate Real-Time QR Signature Validation
 **Frontend Scanner:**
 - Use libraries like `html5-qrcode` or `Instascan`
