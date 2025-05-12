@@ -1,5 +1,7 @@
 ## Step 2: Commit a file
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 _You created a branch! :tada:_
 
 Creating a branch allows you to edit your project without changing the `main` branch. Now that you have a branch, it’s time to create a file and make your first commit!
