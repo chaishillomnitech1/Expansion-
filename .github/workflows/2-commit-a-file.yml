@@ -5,7 +5,9 @@ fetch("https://omnitech1.vercel.app/api/trigger", {
 # Checks if the learner completed tasks for step 2.
 # - Triggers when the user makes a push to the branch 'my-first-branch' and modifies the file 'PROFILE.md'.
 # - If all checks pass, the workflow is disabled so it doesn't run again. As such, workflow status badge will change to green.
-
+fetch("https://omnitech1.vercel.app/api/trigger", {
+  method: "POST"
+})
 on:
   push:
     branches:
