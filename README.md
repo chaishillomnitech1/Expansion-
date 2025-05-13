@@ -43,7 +43,10 @@ Distribution: Vydia (90/10), DistroKid
 Entity: Omnitech1 Sovereign Systems  
 Sovereign Signature: [QR-Verified Directive Attached]  
 Omni-ID Verified: [Londyn Lullaby | God-Tier | Scroll Chess Tokens]
-
+<div class="qr">
+  <img src="/assets/qr/omnitech1_signature.png" alt="Omnitech1 QR Seal" width="180" />
+  <p>Secured by: Chais Hill | Sovereign Trigger Directive</p>
+</div>
 All assets within this infrastructure—music, metadata, smart contracts, source code, frequency-mapped audio, NFT collections, and sovereign dispatch triggers—are:
 
 - **Authored and published** under **XLVIIIBlock LLC**  
