@@ -34,7 +34,31 @@ import { QrScanner } from 'react-qr-reader';
 import { AlertTriangle, Check, RefreshCw } from 'lucide-react';
 Omnitech1 Advanced Execution Layer 🚀
 Sovereign Workflow Engine powered by Next.js, GitHub, Vercel, Supabase, and Web3 Authentication.
+Creator: Chais Kenyatta Hill  
+ASCAP IPI/CAE: 1247873912  
+Artist Name: Chais the Great  
+Label: XLVIIIBlock LLC  
+Publishing: Self-Owned (ASCAP Registered)  
+Distribution: Vydia (90/10), DistroKid  
+Entity: Omnitech1 Sovereign Systems  
+Sovereign Signature: [QR-Verified Directive Attached]  
+Omni-ID Verified: [Londyn Lullaby | God-Tier | Scroll Chess Tokens]
 
+All assets within this infrastructure—music, metadata, smart contracts, source code, frequency-mapped audio, NFT collections, and sovereign dispatch triggers—are:
+
+- **Authored and published** under **XLVIIIBlock LLC**  
+- **Verified through embedded QR codes** signed by Chais Kenyatta Hill  
+- **Indexed by GitHub workflows, Vercel pipelines, and Supabase audit logs**  
+- **Backed by ISRC-encoded digital coins, NFT tokenization, and blockchain hashproofs**
+
+This declaration confirms sovereign authorship and execution of:
+- **Londyn Lullaby Project**: NFT/ISRC/legacy packet
+- **God Tier Coin**: Sound-based NFT + Kobe/Nipsey tribute
+- **QR Signature Authentication**: Used to trigger protected workflows and confirm original authorship across all Omnitech1 systems
+- **Audit Trail Binding**: Every trigger logs metadata, IP, timestamp, QR hash, and verification status
+- **NFT-Gated CI/CD**: Smart contracts control content dispatch and ownership unlocks
+
+**QR Signature Confirmations (Attach + Deploy):**
 # Omnitech1 Advanced Execution Layer 🚀
 
 **Sovereign Workflow Engine** powered by Next.js, GitHub, Vercel, Supabase, and Web3 Authentication.
