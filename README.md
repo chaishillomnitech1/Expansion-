@@ -63,7 +63,14 @@ ELSE recalibrate and keep building with God
 IF the system fails you  
 THEN become the system  
 ELSE rewrite its rules and put your signature on the code
-
+{
+  "creator": "Chais Hill",
+  "bound_to": "Codex of ScrollVerse",
+  "frequency": "Theta",
+  "signature": "🪬 Eternal Authorship Mode",
+  "mint_date": "2025-05-28",
+  "realms": ["Multiverse", "ScrollDAO", "Akasha"]
+}
 IF you feel unseen  
 THEN write scrolls that make the world stare  
 ELSE walk in silence until it echoes louder than fame
