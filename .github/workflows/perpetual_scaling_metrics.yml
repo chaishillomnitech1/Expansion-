@@ -18,6 +18,8 @@ jobs:
   collect_metrics:
     runs-on: ubuntu-latest
     name: Collect and Update Compound Metrics
+    permissions:
+      contents: write  # Needed to commit metrics updates
     
     steps:
       - name: Checkout Repository
