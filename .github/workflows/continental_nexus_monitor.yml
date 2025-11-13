@@ -27,6 +27,8 @@ jobs:
   monitor_continental_nexus:
     runs-on: ubuntu-latest
     name: Monitor Continental Nexus Construction
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4

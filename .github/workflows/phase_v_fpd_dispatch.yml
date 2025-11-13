@@ -25,6 +25,8 @@ jobs:
   fpd_dispatch:
     runs-on: ubuntu-latest
     name: Dispatch Final Purchase Decrees
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
