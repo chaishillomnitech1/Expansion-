@@ -240,6 +240,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: broadcast_victory
     if: always()
+    permissions:
+      contents: read
     
     steps:
       - name: Record Broadcast Metrics
