@@ -21,10 +21,15 @@ on:
           - new-mexico
           - all
 
+permissions:
+  contents: read
+
 jobs:
   validate-infrastructure:
     runs-on: ubuntu-latest
     name: Validate AI Hub Infrastructure Documentation
+    permissions:
+      contents: read
     steps:
       - name: Checkout ScrollVerse Repository
         uses: actions/checkout@v4
@@ -83,6 +88,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Monitor Hub Deployment Readiness
     needs: validate-infrastructure
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -119,6 +126,7 @@ jobs:
     name: Infrastructure Status Notification
     needs: [validate-infrastructure, monitor-deployment-readiness]
     if: always()
+    permissions: {}
     steps:
       - name: Summary Report
         run: |

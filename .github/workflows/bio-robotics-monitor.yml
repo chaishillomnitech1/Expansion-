@@ -11,10 +11,15 @@ on:
     - cron: '0 10 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   validate-biorobotics:
     runs-on: ubuntu-latest
     name: Validate Bio-Robotics Infrastructure
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -61,6 +66,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Verify Zakat Flow Funding
     needs: validate-biorobotics
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -101,6 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Monitor Research Facility Readiness
     needs: verify-funding
+    permissions: {}
     steps:
       - name: Nevada Facility Status
         run: |
@@ -133,6 +141,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Ethical Framework Validation
     needs: validate-biorobotics
+    permissions: {}
     steps:
       - name: Verify Ethical Guidelines
         run: |
@@ -151,6 +160,7 @@ jobs:
     name: Generate Bio-Robotics Status Report
     needs: [validate-biorobotics, verify-funding, monitor-research-readiness, ethical-compliance-check]
     if: always()
+    permissions: {}
     steps:
       - name: Comprehensive Status Report
         run: |

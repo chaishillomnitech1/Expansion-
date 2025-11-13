@@ -17,10 +17,15 @@ on:
         type: boolean
         default: true
 
+permissions:
+  contents: read
+
 jobs:
   validate-zakat-framework:
     runs-on: ubuntu-latest
     name: Validate Zakat Flow Framework
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -56,6 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Verify Fund Allocations
     needs: validate-zakat-framework
+    permissions: {}
     steps:
       - name: Operations Fund Breakdown
         run: |
@@ -104,6 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Verify Phase-wise Integration
     needs: verify-fund-allocations
+    permissions: {}
     steps:
       - name: Nevada Phase Allocation
         run: |
@@ -148,6 +155,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Compliance & Governance Validation
     needs: validate-zakat-framework
+    permissions: {}
     steps:
       - name: Verify Governance Structure
         run: |
@@ -195,6 +203,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Zakat Flow Simulation
     needs: [verify-fund-allocations, verify-phase-integration]
+    permissions: {}
     steps:
       - name: Simulate Monthly Transaction Volume
         run: |
@@ -220,6 +229,7 @@ jobs:
     name: Generate Zakat Flow Status Report
     needs: [validate-zakat-framework, verify-fund-allocations, verify-phase-integration, compliance-check, simulation-test]
     if: always()
+    permissions: {}
     steps:
       - name: Comprehensive Status
         run: |
