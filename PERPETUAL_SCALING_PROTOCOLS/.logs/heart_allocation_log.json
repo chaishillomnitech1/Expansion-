@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-11-13T22:48:21Z",
+  "compound_id": "COMP-001",
+  "operation": "Test Yield Distribution",
+  "decision": "APPROVED",
+  "reason": "All checks passed",
+  "checks": {
+    "yield": "PASS",
+    "protection": "PASS",
+    "zakat": "PASS"
+  }
+}
