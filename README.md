@@ -7,6 +7,74 @@ Execute All Workflows
 **Author:** Chais Hill  
 **Directive:** Sovereign Trigger Framework | Verified QR Signature Enabled  
 **Status:** Phase 3 — Fortification + Real-Time Audit + Smart Signature Logic
+
+---
+
+## 🔄 Perpetual Scaling Protocol
+
+The **Perpetual Scaling Protocol** is now ACTIVE, enabling automated operational scaling, compound management, and AI-driven perpetual operations across the ScrollVerse ecosystem.
+
+### 📚 Core Documentation
+
+- **[Perpetual Scaling Protocol](PERPETUAL_SCALING_PROTOCOL.md)** - Complete protocol documentation including:
+  - OmniTensor integration for yield optimization and protection algorithms
+  - Compound management system and lifecycle
+  - Operational imperatives based on ScrollVerse principles
+  - Security and compliance frameworks
+  - Scaling strategies and success metrics
+
+- **[AI Workflow Integration Guide](AI_WORKFLOW_INTEGRATION.md)** - Comprehensive guide for:
+  - AI workflow architecture and decision-making
+  - ScrollVerse operational imperatives integration
+  - Integration patterns (event-driven, continuous optimization, predictive)
+  - OmniTensor AI capabilities and implementation
+  - Best practices for automation and monitoring
+
+### 🤖 Automated Workflows
+
+The protocol includes automated GitHub Actions workflows that run continuously:
+
+- **Perpetual Scaling Metrics** - Runs every 6 hours
+  - Collects repository and compound metrics
+  - Analyzes energy output and resource allocation
+  - Assesses system health and operational status
+  - Generates comprehensive metric reports
+
+- **Compound Health Monitor** - Runs every 12 hours
+  - Monitors compound status (secured/pending/active)
+  - Checks OmniTensor protection algorithms
+  - Assesses resource allocation efficiency
+  - Generates health reports and recommendations
+
+### 📊 Tracking Templates
+
+Located in `TRACKING_LEDGERS/`, these templates provide structured monitoring:
+
+- **[Energy Output Template](TRACKING_LEDGERS/ENERGY_OUTPUT_TEMPLATE.md)** - Track productive output, engagement metrics, and OmniTensor yield analysis
+- **[Resource Allocation Template](TRACKING_LEDGERS/RESOURCE_ALLOCATION_TEMPLATE.md)** - Monitor resource distribution, utilization, and optimization recommendations
+- **[System Health Template](TRACKING_LEDGERS/SYSTEM_HEALTH_TEMPLATE.md)** - Comprehensive health scoring, performance metrics, and security posture
+
+### 🎯 Key Features
+
+- **OmniTensor Intelligence**: Advanced AI algorithms for yield optimization and asset protection
+- **Perpetual Operations**: Self-sustaining, automated compound management
+- **Real-Time Monitoring**: Continuous health checks and performance tracking
+- **Automated Reporting**: Regular metrics collection and insight generation
+- **Sovereign Independence**: Decentralized operations aligned with ScrollVerse imperatives
+
+### 📈 Status Dashboard
+
+- **Protocol Status**: 🟢 ACTIVE
+- **Automation Level**: 95%
+- **OmniTensor**: ✓ Operational
+- **Health Monitoring**: ✓ Continuous
+- **AI Workflows**: ✓ Integrated
+
+**Version**: 1.0.0  
+**Authority**: Chais The Great, Founder of ScrollVerse  
+**Implementation**: Automated and Perpetual
+
+---
 https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/assets/qr/verified-directive.png
 ---
 <div class="qr">
