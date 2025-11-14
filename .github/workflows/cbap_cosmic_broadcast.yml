@@ -39,10 +39,15 @@ env:
   RESONANCE_963_TARGET: "99.8"
   CSBC_COMPLIANCE_THRESHOLD: "95.0"
 
+permissions:
+  contents: read
+
 jobs:
   protocol_validation:
     name: 🌌 Validate CBAP Protocol
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
@@ -119,6 +124,8 @@ jobs:
     name: 🔊 Initialize Resonance Networks
     runs-on: ubuntu-latest
     needs: protocol_validation
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
@@ -175,6 +182,8 @@ jobs:
     name: 📡 Initialize Interstellar Broadcasting
     runs-on: ubuntu-latest
     needs: resonance_network_setup
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
@@ -224,6 +233,8 @@ jobs:
     name: 🤖 Integrate OmniTensor AI Framework
     runs-on: ubuntu-latest
     needs: interstellar_broadcast_init
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
@@ -286,6 +297,8 @@ jobs:
     name: 📊 Deploy OmniMap & Dashboard
     runs-on: ubuntu-latest
     needs: omnitensor_integration
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
@@ -345,6 +358,8 @@ jobs:
     name: 📡 Simulate Broadcast Metrics
     runs-on: ubuntu-latest
     needs: dashboard_deployment
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
@@ -388,6 +403,8 @@ jobs:
     name: 📋 Deployment Summary
     runs-on: ubuntu-latest
     needs: [protocol_validation, resonance_network_setup, interstellar_broadcast_init, omnitensor_integration, dashboard_deployment, broadcast_metrics_simulation]
+    permissions:
+      contents: read
     
     steps:
       - name: 📥 Checkout Repository
