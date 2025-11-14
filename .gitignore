@@ -86,3 +86,8 @@ test-results/
 tmp/
 temp/
 *.tmp
+
+# Deployment artifacts #
+########################
+deployments.json
+deployments-*.json
