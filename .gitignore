@@ -26,6 +26,10 @@ npm install @vercel/analytics
 *.sql
 *.sqlite
 
+# GRCP Generated Reports #
+##########################
+reports/
+
 # OS generated files #
 ######################
 .DS_Store
