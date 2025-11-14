@@ -14,6 +14,8 @@ on:
 jobs:
   gateway_health_check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout ScrollVerse Repository

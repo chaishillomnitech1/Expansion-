@@ -14,6 +14,8 @@ on:
 jobs:
   resonance_loop_execution:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout ScrollVerse Repository
