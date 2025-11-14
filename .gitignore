@@ -35,4 +35,8 @@ npm install @vercel/analytics
 .Trashes
 ehthumbs.db
 Thumbs.db
-npm install @vercel/analytics
+
+# SMM System Output Files #
+###########################
+smm_system/smm_deliveries_output.json
+smm_system/smm_letters/
