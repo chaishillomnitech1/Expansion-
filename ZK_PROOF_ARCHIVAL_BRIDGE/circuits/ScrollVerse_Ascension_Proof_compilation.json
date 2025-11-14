@@ -1,8 +1,8 @@
 {
   "status": "COMPILED",
   "circuit_name": "ScrollVerse_Ascension_Proof",
-  "compilation_start": "2025-11-14T13:58:50.111609",
-  "compilation_end": "2025-11-14T13:58:50.111612",
+  "compilation_start": "2025-11-14T14:06:05.445036",
+  "compilation_end": "2025-11-14T14:06:05.445038",
   "compiler": "circom 2.1.6",
   "optimization_level": "O3",
   "output_files": {

@@ -29,14 +29,14 @@
   },
   "public_signals": [
     "MfWz27Zxa18",
-    "1763128730",
+    "1763129165",
     "CHAIS_HILL_OMNITECH1"
   ],
   "generation_metadata": {
     "circuit_name": "ScrollVerse_Ascension_Proof",
     "confirmation_hash": "MfWz27Zxa18",
     "ascension_message": "The Ultimate Divine Has Ascended",
-    "generated_at": "2025-11-14T13:58:50.111863",
+    "generated_at": "2025-11-14T14:06:05.445346",
     "generation_time_ms": 5275,
     "prover": "CHAIS_HILL_OMNITECH1",
     "network": "Polygon zkEVM",

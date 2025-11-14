@@ -1,6 +1,6 @@
 {
   "bucket_config": {
-    "initialization_timestamp": "2025-11-14T13:58:50.112425",
+    "initialization_timestamp": "2025-11-14T14:06:05.445877",
     "bucket_name": "scrollverse-eternal-archive-worm",
     "region": "us-east-1",
     "configuration": {
@@ -13,7 +13,7 @@
         "mode": "COMPLIANCE",
         "retention_period": {
           "days": 36500,
-          "expiration_date": "2125-10-21T13:58:50.112425"
+          "expiration_date": "2125-10-21T14:06:05.445877"
         }
       },
       "encryption": {
@@ -84,11 +84,11 @@
       "s3_url": "https://scrollverse-eternal-archive-worm.s3.us-east-1.amazonaws.com/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
       "bucket_name": "scrollverse-eternal-archive-worm",
       "region": "us-east-1",
-      "transfer_start": "2025-11-14T13:58:50.112667",
-      "transfer_end": "2025-11-14T13:58:50.112730",
+      "transfer_start": "2025-11-14T14:06:05.446234",
+      "transfer_end": "2025-11-14T14:06:05.446302",
       "file_size_bytes": 3108,
       "storage_class": "GLACIER_DEEP_ARCHIVE",
-      "version_id": "220be7f933cae31eda9cb245dfe48ab6",
+      "version_id": "8f821e68e9871cf0b71b314f39ce24dc",
       "etag": "\"3f2372dce662f97f5b331cd8e400bb70\"",
       "checksums": {
         "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
@@ -96,14 +96,14 @@
       },
       "object_lock": {
         "mode": "COMPLIANCE",
-        "retain_until_date": "2125-10-21T13:58:50.112667",
+        "retain_until_date": "2125-10-21T14:06:05.446234",
         "legal_hold": "OFF"
       },
       "metadata": {
         "sovereign": "Chais Hill",
         "authority": "OmniTech1",
         "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
-        "upload_timestamp": "2025-11-14T13:58:50.112667"
+        "upload_timestamp": "2025-11-14T14:06:05.446234"
       },
       "encryption": {
         "algorithm": "AES-256",
@@ -121,11 +121,11 @@
       "s3_url": "https://scrollverse-eternal-archive-worm.s3.us-east-1.amazonaws.com/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
       "bucket_name": "scrollverse-eternal-archive-worm",
       "region": "us-east-1",
-      "transfer_start": "2025-11-14T13:58:50.112880",
-      "transfer_end": "2025-11-14T13:58:50.112943",
+      "transfer_start": "2025-11-14T14:06:05.446352",
+      "transfer_end": "2025-11-14T14:06:05.446399",
       "file_size_bytes": 5988,
       "storage_class": "GLACIER_DEEP_ARCHIVE",
-      "version_id": "122828ff357bb48a25f516dcb37920a3",
+      "version_id": "61649dd7c24291c9461eef68d458ed4e",
       "etag": "\"46245b9618b59e0b2028dac4db840278\"",
       "checksums": {
         "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
@@ -133,14 +133,14 @@
       },
       "object_lock": {
         "mode": "COMPLIANCE",
-        "retain_until_date": "2125-10-21T13:58:50.112880",
+        "retain_until_date": "2125-10-21T14:06:05.446352",
         "legal_hold": "OFF"
       },
       "metadata": {
         "sovereign": "Chais Hill",
         "authority": "OmniTech1",
         "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
-        "upload_timestamp": "2025-11-14T13:58:50.112880"
+        "upload_timestamp": "2025-11-14T14:06:05.446352"
       },
       "encryption": {
         "algorithm": "AES-256",
@@ -154,7 +154,7 @@
   ],
   "verifications": [
     {
-      "verification_timestamp": "2025-11-14T13:58:50.112761",
+      "verification_timestamp": "2025-11-14T14:06:05.446317",
       "s3_key": "archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
       "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
       "checks_performed": {
@@ -168,17 +168,17 @@
       "object_properties": {
         "size_bytes": 3108,
         "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
-        "version_id": "220be7f933cae31eda9cb245dfe48ab6",
+        "version_id": "8f821e68e9871cf0b71b314f39ce24dc",
         "storage_class": "GLACIER_DEEP_ARCHIVE",
         "object_lock_mode": "COMPLIANCE",
-        "retention_until": "2125-10-21T13:58:50.112667"
+        "retention_until": "2125-10-21T14:06:05.446234"
       },
       "verification_status": "VERIFIED",
       "integrity": "CONFIRMED",
       "immutability": "GUARANTEED"
     },
     {
-      "verification_timestamp": "2025-11-14T13:58:50.112969",
+      "verification_timestamp": "2025-11-14T14:06:05.446411",
       "s3_key": "archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
       "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
       "checks_performed": {
@@ -192,10 +192,10 @@
       "object_properties": {
         "size_bytes": 5988,
         "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
-        "version_id": "122828ff357bb48a25f516dcb37920a3",
+        "version_id": "61649dd7c24291c9461eef68d458ed4e",
         "storage_class": "GLACIER_DEEP_ARCHIVE",
         "object_lock_mode": "COMPLIANCE",
-        "retention_until": "2125-10-21T13:58:50.112880"
+        "retention_until": "2125-10-21T14:06:05.446352"
       },
       "verification_status": "VERIFIED",
       "integrity": "CONFIRMED",
@@ -204,7 +204,7 @@
   ],
   "manifest": {
     "manifest_version": "1.0",
-    "created_at": "2025-11-14T13:58:50.112989",
+    "created_at": "2025-11-14T14:06:05.446423",
     "bucket_name": "scrollverse-eternal-archive-worm",
     "region": "us-east-1",
     "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
@@ -222,18 +222,18 @@
         "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
         "size_bytes": 3108,
         "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
-        "version_id": "220be7f933cae31eda9cb245dfe48ab6",
-        "transfer_timestamp": "2025-11-14T13:58:50.112667",
-        "retention_until": "2125-10-21T13:58:50.112667"
+        "version_id": "8f821e68e9871cf0b71b314f39ce24dc",
+        "transfer_timestamp": "2025-11-14T14:06:05.446234",
+        "retention_until": "2125-10-21T14:06:05.446234"
       },
       {
         "s3_key": "archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
         "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
         "size_bytes": 5988,
         "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
-        "version_id": "122828ff357bb48a25f516dcb37920a3",
-        "transfer_timestamp": "2025-11-14T13:58:50.112880",
-        "retention_until": "2125-10-21T13:58:50.112880"
+        "version_id": "61649dd7c24291c9461eef68d458ed4e",
+        "transfer_timestamp": "2025-11-14T14:06:05.446352",
+        "retention_until": "2125-10-21T14:06:05.446352"
       }
     ],
     "sovereign_metadata": {

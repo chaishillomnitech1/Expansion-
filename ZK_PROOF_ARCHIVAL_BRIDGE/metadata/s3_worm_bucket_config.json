@@ -1,5 +1,5 @@
 {
-  "initialization_timestamp": "2025-11-14T13:58:50.112425",
+  "initialization_timestamp": "2025-11-14T14:06:05.445877",
   "bucket_name": "scrollverse-eternal-archive-worm",
   "region": "us-east-1",
   "configuration": {
@@ -12,7 +12,7 @@
       "mode": "COMPLIANCE",
       "retention_period": {
         "days": 36500,
-        "expiration_date": "2125-10-21T13:58:50.112425"
+        "expiration_date": "2125-10-21T14:06:05.445877"
       }
     },
     "encryption": {
