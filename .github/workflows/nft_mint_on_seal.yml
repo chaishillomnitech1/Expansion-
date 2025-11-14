@@ -1,0 +1,1 @@
+# NFT Minting Workflow\n\nname: NFT Minting\n\non: [workflow_run]\n\njobs:\n  mint:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v2\n      - name: Run NFT Minting Script\n        run: |\n          echo 'Minting the ScrollBond NFT legacy seal.'\n          # Add your minting command here\n
