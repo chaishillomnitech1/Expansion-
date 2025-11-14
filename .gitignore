@@ -36,3 +36,11 @@ npm install @vercel/analytics
 ehthumbs.db
 Thumbs.db
 npm install @vercel/analytics
+
+# Python #
+#########
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python

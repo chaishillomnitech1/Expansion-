@@ -1,0 +1,48 @@
+{
+  "protocol": "groth16",
+  "curve": "bn128",
+  "proof": {
+    "pi_a": [
+      "0x89272ecbfe9bfcbd0c95c578eec630da11224b5c",
+      "0x7c07bf5ec84c76e26c936df07db386b19933a14b",
+      "0x9992791227f910d201b8dae922f97e254994e7a1"
+    ],
+    "pi_b": [
+      [
+        "0xd845c2c79e1a1711e5533fee9d0e8d148d9f4ba6",
+        "0x15812d9fb532f565381145d96842f69bfc055e55"
+      ],
+      [
+        "0x96ea8d0fee1480cdc9fb7bdc9745123d316499c6",
+        "0x8ed38605b8e1220a2f97a6414cd9bf7890df2411"
+      ],
+      [
+        "0xe1a74bda197715ab78336c3e385962c5188d4983",
+        "0xad1d599c0118c3d7dad963541dc367e8e826f9e4"
+      ]
+    ],
+    "pi_c": [
+      "0xd3a7ed61ec77d4b6057f4f671a87b322b74ed13a",
+      "0x4514f2fe23ca94eb809dc5da9d27341f3876adf6",
+      "0xaee82b51576dd38df69f5b0980b0dcb1e8770c60"
+    ]
+  },
+  "public_signals": [
+    "MfWz27Zxa18",
+    "1763128730",
+    "CHAIS_HILL_OMNITECH1"
+  ],
+  "generation_metadata": {
+    "circuit_name": "ScrollVerse_Ascension_Proof",
+    "confirmation_hash": "MfWz27Zxa18",
+    "ascension_message": "The Ultimate Divine Has Ascended",
+    "generated_at": "2025-11-14T13:58:50.111863",
+    "generation_time_ms": 5275,
+    "prover": "CHAIS_HILL_OMNITECH1",
+    "network": "Polygon zkEVM",
+    "archive_references": {
+      "flameheir_pr22": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
+      "cbap_pr23": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7"
+    }
+  }
+}

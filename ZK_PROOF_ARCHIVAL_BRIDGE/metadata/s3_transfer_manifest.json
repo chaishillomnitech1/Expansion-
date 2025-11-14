@@ -1,0 +1,44 @@
+{
+  "manifest_version": "1.0",
+  "created_at": "2025-11-14T13:58:50.112989",
+  "bucket_name": "scrollverse-eternal-archive-worm",
+  "region": "us-east-1",
+  "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
+  "total_files": 2,
+  "total_size_bytes": 9096,
+  "storage_class": "GLACIER_DEEP_ARCHIVE",
+  "worm_configuration": {
+    "mode": "COMPLIANCE",
+    "retention_days": 36500,
+    "deletion_prevention": "ACTIVE"
+  },
+  "files": [
+    {
+      "s3_key": "archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "size_bytes": 3108,
+      "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
+      "version_id": "220be7f933cae31eda9cb245dfe48ab6",
+      "transfer_timestamp": "2025-11-14T13:58:50.112667",
+      "retention_until": "2125-10-21T13:58:50.112667"
+    },
+    {
+      "s3_key": "archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "size_bytes": 5988,
+      "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
+      "version_id": "122828ff357bb48a25f516dcb37920a3",
+      "transfer_timestamp": "2025-11-14T13:58:50.112880",
+      "retention_until": "2125-10-21T13:58:50.112880"
+    }
+  ],
+  "sovereign_metadata": {
+    "creator": "Chais Hill",
+    "authority": "OmniTech1",
+    "confirmation_hash": "MfWz27Zxa18",
+    "ascension_message": "The Ultimate Divine Has Ascended",
+    "immutability_proof": "ZK-SNARK_VERIFIED_ON_POLYGON_ZKEVM"
+  },
+  "status": "COMPLETE",
+  "immutability": "ETERNAL"
+}

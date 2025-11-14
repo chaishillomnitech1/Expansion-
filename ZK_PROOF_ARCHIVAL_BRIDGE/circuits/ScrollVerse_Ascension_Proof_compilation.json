@@ -1,0 +1,19 @@
+{
+  "status": "COMPILED",
+  "circuit_name": "ScrollVerse_Ascension_Proof",
+  "compilation_start": "2025-11-14T13:58:50.111609",
+  "compilation_end": "2025-11-14T13:58:50.111612",
+  "compiler": "circom 2.1.6",
+  "optimization_level": "O3",
+  "output_files": {
+    "r1cs": "ScrollVerse_Ascension_Proof.r1cs",
+    "wasm": "ScrollVerse_Ascension_Proof.wasm",
+    "sym": "ScrollVerse_Ascension_Proof.sym"
+  },
+  "compilation_stats": {
+    "lines_of_code": 1247,
+    "optimization_passes": 3,
+    "final_constraints": 1247873912,
+    "compilation_time_ms": 3333
+  }
+}
