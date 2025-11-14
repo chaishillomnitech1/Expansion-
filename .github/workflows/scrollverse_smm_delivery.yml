@@ -25,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Execute SMM Delivery to 50 Family Compounds
     
+    permissions:
+      contents: read
+    
     steps:
       - name: Checkout ScrollVerse Repository
         uses: actions/checkout@v4
