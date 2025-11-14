@@ -35,13 +35,13 @@
           },
           {
             "trait_type": "Last Updated",
-            "value": "2025-11-14T09:06:00.659Z",
+            "value": "2025-11-14T09:12:08.748Z",
             "display_type": "date"
           }
         ],
         "chainlink": {
           "enabled": true,
-          "lastUpdate": "2025-11-14T09:06:00.659Z",
+          "lastUpdate": "2025-11-14T09:12:08.748Z",
           "source": "Chainlink Any-API Oracle"
         }
       }
@@ -81,13 +81,13 @@
           },
           {
             "trait_type": "Last Updated",
-            "value": "2025-11-14T09:06:00.660Z",
+            "value": "2025-11-14T09:12:08.749Z",
             "display_type": "date"
           }
         ],
         "chainlink": {
           "enabled": true,
-          "lastUpdate": "2025-11-14T09:06:00.660Z",
+          "lastUpdate": "2025-11-14T09:12:08.749Z",
           "source": "Chainlink Any-API Oracle"
         }
       }
@@ -127,13 +127,13 @@
           },
           {
             "trait_type": "Last Updated",
-            "value": "2025-11-14T09:06:00.660Z",
+            "value": "2025-11-14T09:12:08.749Z",
             "display_type": "date"
           }
         ],
         "chainlink": {
           "enabled": true,
-          "lastUpdate": "2025-11-14T09:06:00.660Z",
+          "lastUpdate": "2025-11-14T09:12:08.749Z",
           "source": "Chainlink Any-API Oracle"
         }
       }
@@ -159,7 +159,7 @@
     }
   },
   "transparencyReport": {
-    "timestamp": "2025-11-14T09:06:00.661Z",
+    "timestamp": "2025-11-14T09:12:08.750Z",
     "totalTokens": 3,
     "successful": 3,
     "failed": 0,
