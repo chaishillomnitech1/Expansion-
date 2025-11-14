@@ -1,0 +1,564 @@
+/* Global Resonance Control Panel Styles */
+
+:root {
+    --primary-color: #2C1B47;
+    --secondary-color: #00A3E0;
+    --accent-color: #00FFC1;
+    --warning-color: #FFB800;
+    --danger-color: #FF4444;
+    --success-color: #00FF88;
+    --bg-dark: #0F0622;
+    --bg-panel: #1A0E33;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B8B8D8;
+    --border-color: #3D2B5F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-color) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    background: rgba(26, 14, 51, 0.6);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 2px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background: var(--bg-panel);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.status-item {
+    display: flex;
+    gap: 10px;
+}
+
+.label {
+    color: var(--text-secondary);
+}
+
+.status-value {
+    font-weight: bold;
+}
+
+.status-value.operational {
+    color: var(--success-color);
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.panel {
+    background: var(--bg-panel);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 163, 224, 0.3);
+}
+
+.panel h2 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.panel-description {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Resonance Tuning Styles */
+.frequency-display {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0, 163, 224, 0.1);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 2px solid var(--secondary-color);
+}
+
+.frequency-value {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px var(--accent-color);
+}
+
+.frequency-value .unit {
+    font-size: 0.5em;
+    color: var(--text-secondary);
+}
+
+.frequency-name {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: var(--secondary-color);
+}
+
+.frequency-slider {
+    margin-bottom: 25px;
+}
+
+.frequency-slider label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+#frequency-control {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#frequency-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+#frequency-control::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--accent-color);
+    border: none;
+}
+
+.frequency-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.sacred-frequencies h3 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    font-size: 1.1em;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.sacred-freq-btn {
+    padding: 12px;
+    background: rgba(0, 163, 224, 0.2);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+
+.sacred-freq-btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+/* Threshold Management Styles */
+.threshold-section {
+    margin-bottom: 25px;
+}
+
+.threshold-section h3 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.threshold-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.threshold-btn {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.threshold-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.threshold-btn.active {
+    background: var(--accent-color);
+    color: var(--bg-dark);
+    font-weight: bold;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.current-level {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 255, 193, 0.1);
+    border-radius: 5px;
+    color: var(--accent-color);
+}
+
+.allocation-preview {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(0, 163, 224, 0.1);
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+}
+
+.allocation-preview h3 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.allocation-info {
+    margin-bottom: 15px;
+}
+
+.allocation-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.allocation-item.highlight {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Reveal Trigger Styles */
+.reveal-panel {
+    border-color: var(--danger-color);
+    background: linear-gradient(135deg, var(--bg-panel) 0%, rgba(255, 68, 68, 0.1) 100%);
+}
+
+.security-status {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(0, 255, 193, 0.1);
+    border-radius: 8px;
+    border: 1px solid var(--success-color);
+}
+
+.security-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.security-indicator {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.trigger-status {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.status-display {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.status-label {
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+.trigger-state {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.trigger-state.disarmed {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.trigger-state.armed {
+    color: var(--warning-color);
+    background: rgba(255, 184, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.trigger-state.activated {
+    color: var(--danger-color);
+    background: rgba(255, 68, 68, 0.3);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.auth-section {
+    margin: 25px 0;
+}
+
+.auth-section h3 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: 1em;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 193, 0.3);
+}
+
+.trigger-actions {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.warning-btn {
+    background: var(--warning-color);
+    color: var(--bg-dark);
+}
+
+.warning-btn:not(:disabled):hover {
+    background: #FFD000;
+}
+
+.danger-btn {
+    background: var(--danger-color);
+    color: white;
+}
+
+.danger-btn:not(:disabled):hover {
+    background: #FF6666;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.warning-message {
+    padding: 15px;
+    background: rgba(255, 184, 0, 0.1);
+    border: 1px solid var(--warning-color);
+    border-radius: 8px;
+    color: var(--warning-color);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* System Integration Styles */
+.integration-status {
+    margin-bottom: 25px;
+}
+
+.integration-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.integration-name {
+    color: var(--text-primary);
+}
+
+.integration-indicator {
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.9em;
+}
+
+.integration-indicator.connected {
+    background: rgba(0, 255, 136, 0.2);
+    color: var(--success-color);
+}
+
+.system-metrics h3 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.metric-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.metric-item span:last-child {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .panel-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .status-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .frequency-value {
+        font-size: 3em;
+    }
+
+    .button-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .threshold-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trigger-actions {
+        flex-direction: column;
+    }
+}

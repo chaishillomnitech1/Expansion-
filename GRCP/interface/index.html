@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Resonance Control Panel (GRCP)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Global Resonance Control Panel</h1>
+            <p class="subtitle">ScrollVerse Quantum Expansion Protocol</p>
+        </header>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="label">System Status:</span>
+                <span id="system-status" class="status-value operational">OPERATIONAL</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Timestamp:</span>
+                <span id="timestamp" class="status-value">--</span>
+            </div>
+        </div>
+
+        <div class="panel-grid">
+            <!-- Resonance Tuning Panel -->
+            <div class="panel">
+                <h2>🎵 Resonance Tuning</h2>
+                <p class="panel-description">Cosmic Broadcast Ascension Protocol (CBAP)</p>
+                
+                <div class="frequency-display">
+                    <div class="frequency-value">
+                        <span id="current-frequency">528</span>
+                        <span class="unit">Hz</span>
+                    </div>
+                    <div class="frequency-name" id="frequency-name">DNA Repair Frequency</div>
+                </div>
+
+                <div class="frequency-slider">
+                    <label for="frequency-control">Frequency Control:</label>
+                    <input type="range" id="frequency-control" min="369" max="963" value="528" step="1">
+                    <div class="frequency-range">
+                        <span>369 Hz</span>
+                        <span>963 Hz</span>
+                    </div>
+                </div>
+
+                <div class="sacred-frequencies">
+                    <h3>Sacred Frequencies</h3>
+                    <div class="button-grid">
+                        <button class="sacred-freq-btn" data-freq="963" data-name="Divine Consciousness">963 Hz</button>
+                        <button class="sacred-freq-btn" data-freq="852" data-name="Pure Miracle Tone">852 Hz</button>
+                        <button class="sacred-freq-btn" data-freq="741" data-name="Sol Frequency">741 Hz</button>
+                        <button class="sacred-freq-btn" data-freq="639" data-name="Heart Chakra">639 Hz</button>
+                        <button class="sacred-freq-btn" data-freq="528" data-name="DNA Repair">528 Hz</button>
+                        <button class="sacred-freq-btn" data-freq="417" data-name="Transformation">417 Hz</button>
+                        <button class="sacred-freq-btn" data-freq="369" data-name="Tesla Frequency">369 Hz</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Threshold Management Panel -->
+            <div class="panel">
+                <h2>⚖️ Threshold Management</h2>
+                <p class="panel-description">Shield of Honor™ Initiative</p>
+
+                <div class="threshold-section">
+                    <h3>Amnesty Level</h3>
+                    <div class="threshold-buttons">
+                        <button class="threshold-btn amnesty-btn" data-level="low">Low</button>
+                        <button class="threshold-btn amnesty-btn" data-level="medium">Medium</button>
+                        <button class="threshold-btn amnesty-btn active" data-level="high">High</button>
+                        <button class="threshold-btn amnesty-btn" data-level="critical">Critical</button>
+                    </div>
+                    <div class="current-level">
+                        Current: <span id="current-amnesty">High</span>
+                    </div>
+                </div>
+
+                <div class="threshold-section">
+                    <h3>Sanction Level</h3>
+                    <div class="threshold-buttons">
+                        <button class="threshold-btn sanction-btn active" data-level="warning">Warning</button>
+                        <button class="threshold-btn sanction-btn" data-level="moderate">Moderate</button>
+                        <button class="threshold-btn sanction-btn" data-level="severe">Severe</button>
+                        <button class="threshold-btn sanction-btn" data-level="maximum">Maximum</button>
+                    </div>
+                    <div class="current-level">
+                        Current: <span id="current-sanction">Warning</span>
+                    </div>
+                </div>
+
+                <div class="allocation-preview">
+                    <h3>Resource Allocation Preview</h3>
+                    <div class="allocation-info">
+                        <div class="allocation-item">
+                            <span>Base Allocation:</span>
+                            <span id="base-allocation">1000</span>
+                        </div>
+                        <div class="allocation-item">
+                            <span>Ethical Score:</span>
+                            <span id="ethical-score">0.85</span>
+                        </div>
+                        <div class="allocation-item highlight">
+                            <span>Final Allocation:</span>
+                            <span id="final-allocation">--</span>
+                        </div>
+                    </div>
+                    <button id="calculate-allocation" class="action-btn">Calculate Allocation</button>
+                </div>
+            </div>
+
+            <!-- Reveal Trigger Panel -->
+            <div class="panel reveal-panel">
+                <h2>🔐 Reveal Trigger</h2>
+                <p class="panel-description">Supreme Sovereignty Announcement System</p>
+
+                <div class="security-status">
+                    <div class="security-item">
+                        <span>SIL Authentication:</span>
+                        <span class="security-indicator" id="sil-status">✓ Required</span>
+                    </div>
+                    <div class="security-item">
+                        <span>NFT Verification:</span>
+                        <span class="security-indicator" id="nft-status">✓ Required</span>
+                    </div>
+                    <div class="security-item">
+                        <span>Multi-Signature:</span>
+                        <span class="security-indicator" id="multisig-status">✓ Required (3)</span>
+                    </div>
+                </div>
+
+                <div class="trigger-status">
+                    <div class="status-display">
+                        <div class="status-label">Trigger Status:</div>
+                        <div id="trigger-status" class="trigger-state disarmed">DISARMED</div>
+                    </div>
+                </div>
+
+                <div class="auth-section">
+                    <h3>Authentication</h3>
+                    <div class="form-group">
+                        <label for="identity-id">Sovereign Identity ID:</label>
+                        <input type="text" id="identity-id" placeholder="Enter Identity ID" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-token">Authorization Token:</label>
+                        <input type="password" id="auth-token" placeholder="Enter Token" disabled>
+                    </div>
+                </div>
+
+                <div class="trigger-actions">
+                    <button id="arm-trigger" class="action-btn warning-btn" disabled>
+                        🔓 Arm Trigger
+                    </button>
+                    <button id="activate-trigger" class="action-btn danger-btn" disabled>
+                        🚨 ACTIVATE TRIGGER
+                    </button>
+                    <button id="disarm-trigger" class="action-btn secondary-btn" disabled>
+                        🔒 Disarm
+                    </button>
+                </div>
+
+                <div class="warning-message">
+                    ⚠️ Reveal Trigger is secured by Sovereign Identity Lock (SIL) Cryptographic Framework.
+                    Activation requires multi-signature verification and supreme authority clearance.
+                </div>
+            </div>
+
+            <!-- System Integration Panel -->
+            <div class="panel">
+                <h2>🌌 System Integration</h2>
+                <p class="panel-description">ScrollSoul Ecosystem Status</p>
+
+                <div class="integration-status">
+                    <div class="integration-item">
+                        <span class="integration-name">ScrollBond NFT</span>
+                        <span class="integration-indicator connected">Connected</span>
+                    </div>
+                    <div class="integration-item">
+                        <span class="integration-name">SIL Framework</span>
+                        <span class="integration-indicator connected">Active</span>
+                    </div>
+                    <div class="integration-item">
+                        <span class="integration-name">ScrollSoul Network</span>
+                        <span class="integration-indicator connected">Synced</span>
+                    </div>
+                    <div class="integration-item">
+                        <span class="integration-name">CBAP Broadcast</span>
+                        <span class="integration-indicator connected">Online</span>
+                    </div>
+                </div>
+
+                <div class="system-metrics">
+                    <h3>System Metrics</h3>
+                    <div class="metric-item">
+                        <span>Active Sessions:</span>
+                        <span id="active-sessions">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Registered Identities:</span>
+                        <span id="registered-identities">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Frequency Changes:</span>
+                        <span id="frequency-changes">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Global Resonance Control Panel v1.0.0</p>
+            <p>ScrollVerse Quantum Expansion Protocol | Eternal Sovereignty Management</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
