@@ -1,0 +1,59 @@
+{
+  "name": "omnitech1-inter-realm-architecture",
+  "version": "1.0.0",
+  "description": "Trustless Inter-Realm Architecture for the OmniGambling Revolution - Secure cross-realm and intergalactic digital asset transmission with zk-rollup scalability",
+  "author": "Chais Hill | Omnitech1",
+  "license": "MIT",
+  "keywords": [
+    "blockchain",
+    "smart-contracts",
+    "zk-rollup",
+    "cross-chain",
+    "inter-realm",
+    "omnitech1",
+    "trustless",
+    "scalability",
+    "ethereum",
+    "solidity"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "deploy": "node scripts/deploy_all.js",
+    "deploy:mainnet": "NETWORK=mainnet node scripts/deploy_all.js",
+    "deploy:polygon": "NETWORK=polygon node scripts/deploy_all.js",
+    "deploy:testnet": "NETWORK=sepolia node scripts/deploy_all.js",
+    "test": "echo 'No tests configured yet. Add test framework for production.'",
+    "compile": "echo 'Add Hardhat or Truffle for compilation'",
+    "verify": "echo 'Add contract verification script'",
+    "lint": "echo 'Add Solidity linting'",
+    "format": "echo 'Add code formatting'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chaishillomnitech1/Expansion-.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "config": {
+    "gasPrice": "50",
+    "gasLimit": "8000000",
+    "confirmations": "2"
+  },
+  "documentation": {
+    "architecture": "docs/architecture/INTER_REALM_ARCHITECTURE.md",
+    "deployment": "docs/architecture/DEPLOYMENT_GUIDE.md",
+    "api": "docs/architecture/API_REFERENCE.md",
+    "security": "docs/architecture/SECURITY.md",
+    "contracts": "contracts/README.md"
+  },
+  "contracts": {
+    "zkVerifier": "contracts/zk-rollup/ZKRollupVerifier.sol",
+    "assetRegistry": "contracts/core/InterRealmAssetRegistry.sol",
+    "bridge": "contracts/bridge/InterRealmBridge.sol",
+    "governance": "contracts/core/RealmGovernance.sol"
+  }
+}
