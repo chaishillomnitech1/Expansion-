@@ -29,6 +29,8 @@ jobs:
   validate-contracts:
     name: Validate Smart Contracts
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout Repository
@@ -65,6 +67,8 @@ jobs:
     name: Deploy Marketplace Contracts
     needs: validate-contracts
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout Repository
@@ -126,6 +130,8 @@ jobs:
     name: Setup Chainlink Integration
     needs: deploy-marketplace
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout Repository
@@ -183,6 +189,8 @@ jobs:
     name: Deployment Verification
     needs: [deploy-marketplace, setup-chainlink]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Download All Artifacts
