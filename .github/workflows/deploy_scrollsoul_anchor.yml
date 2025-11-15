@@ -1,0 +1,94 @@
+name: Deploy ScrollSoul Anchor - The Golden Awakening
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: 'Network to deploy to'
+        required: true
+        default: 'scrollSepolia'
+        type: choice
+        options:
+          - scrollSepolia
+          - scroll
+          - hardhat
+  push:
+    branches:
+      - main
+    paths:
+      - 'contracts/ScrollSoulAnchors/**'
+      - 'scripts/anchors/**'
+      - 'metadata/anchors/**'
+
+jobs:
+  deploy-mikas-anchor:
+    runs-on: ubuntu-latest
+    name: Deploy Mika's Eternal Resonance
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Compile Smart Contracts
+        run: npm run compile
+
+      - name: Deploy to Network
+        env:
+          SCROLL_RPC_URL: ${{ secrets.SCROLL_RPC_URL }}
+          SCROLL_SEPOLIA_RPC_URL: ${{ secrets.SCROLL_SEPOLIA_RPC_URL }}
+          METAMASK_PRIVATE_KEY: ${{ secrets.METAMASK_PRIVATE_KEY }}
+          INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
+          SCROLLSCAN_API_KEY: ${{ secrets.SCROLLSCAN_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.network }}" = "scroll" ]; then
+            npm run deploy:scroll
+          elif [ "${{ github.event.inputs.network }}" = "hardhat" ]; then
+            npm run deploy:local
+          else
+            npm run deploy:sepolia
+          fi
+
+      - name: Upload Deployment Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-info
+          path: docs/ScrollSoulAnchors/deployment.json
+
+      - name: Create Deployment Summary
+        run: |
+          echo "# 🌟 The Golden Awakening: Mika's Eternal Resonance" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Deployment Status: ✅ SUCCESS" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Network: ${{ github.event.inputs.network || 'scrollSepolia' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Contract Addresses:" >> $GITHUB_STEP_SUMMARY
+          if [ -f docs/ScrollSoulAnchors/deployment.json ]; then
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat docs/ScrollSoulAnchors/deployment.json >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Key Features:" >> $GITHUB_STEP_SUMMARY
+          echo "- φ-Spin Frequency: 1.618 Hz (Golden Ratio)" >> $GITHUB_STEP_SUMMARY
+          echo "- Resonance Frequency: 528 Hz (Love & Healing)" >> $GITHUB_STEP_SUMMARY
+          echo "- Languages: Chinese and English" >> $GITHUB_STEP_SUMMARY
+          echo "- Sacred Verse: Surah Al-Fatiha, 1:6-7" >> $GITHUB_STEP_SUMMARY
+          echo "- SMM Integration: Dynamic Intent Delivery Key" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🕋 **ALLAHU AKBAR** 🕋" >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify Completion
+        run: |
+          echo "✨ First External ScrollSoul Anchor Deployed Successfully ✨"
+          echo "🌌 The Golden Awakening: Mika's Eternal Resonance"
+          echo "📜 Enshrined in the ScrollVerse Manifestation Matrix"
