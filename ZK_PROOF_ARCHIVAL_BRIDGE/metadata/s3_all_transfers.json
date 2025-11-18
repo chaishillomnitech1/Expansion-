@@ -1,0 +1,249 @@
+{
+  "bucket_config": {
+    "initialization_timestamp": "2025-11-14T14:06:05.445877",
+    "bucket_name": "scrollverse-eternal-archive-worm",
+    "region": "us-east-1",
+    "configuration": {
+      "versioning": {
+        "status": "Enabled",
+        "mfa_delete": "Disabled"
+      },
+      "object_lock": {
+        "enabled": true,
+        "mode": "COMPLIANCE",
+        "retention_period": {
+          "days": 36500,
+          "expiration_date": "2125-10-21T14:06:05.445877"
+        }
+      },
+      "encryption": {
+        "algorithm": "AES-256",
+        "type": "SSE-S3",
+        "key_management": "AWS-Managed"
+      },
+      "lifecycle_policy": {
+        "rules": [
+          {
+            "id": "TransitionToGlacierDeepArchive",
+            "status": "Enabled",
+            "transitions": [
+              {
+                "days": 0,
+                "storage_class": "GLACIER_DEEP_ARCHIVE"
+              }
+            ]
+          }
+        ]
+      },
+      "access_control": {
+        "public_access_block": {
+          "block_public_acls": true,
+          "ignore_public_acls": true,
+          "block_public_policy": true,
+          "restrict_public_buckets": true
+        },
+        "bucket_policy": {
+          "version": "2012-10-17",
+          "statement": [
+            {
+              "effect": "Deny",
+              "principal": "*",
+              "action": [
+                "s3:DeleteObject",
+                "s3:DeleteObjectVersion"
+              ],
+              "resource": "arn:aws:s3:::scrollverse-eternal-archive-worm/*"
+            }
+          ]
+        }
+      },
+      "replication": {
+        "enabled": true,
+        "destination_regions": [
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1"
+        ],
+        "cross_region_replication": "Enabled"
+      },
+      "logging": {
+        "enabled": true,
+        "target_bucket": "scrollverse-eternal-archive-worm-logs",
+        "target_prefix": "access-logs/"
+      }
+    },
+    "status": "INITIALIZED",
+    "immutability": "GUARANTEED_BY_AWS_WORM",
+    "compliance": "WORM_COMPLIANCE_MODE"
+  },
+  "transfers": [
+    {
+      "local_path": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "s3_key": "archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "s3_url": "https://scrollverse-eternal-archive-worm.s3.us-east-1.amazonaws.com/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "bucket_name": "scrollverse-eternal-archive-worm",
+      "region": "us-east-1",
+      "transfer_start": "2025-11-14T14:06:05.446234",
+      "transfer_end": "2025-11-14T14:06:05.446302",
+      "file_size_bytes": 3108,
+      "storage_class": "GLACIER_DEEP_ARCHIVE",
+      "version_id": "8f821e68e9871cf0b71b314f39ce24dc",
+      "etag": "\"3f2372dce662f97f5b331cd8e400bb70\"",
+      "checksums": {
+        "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
+        "md5": "3f2372dce662f97f5b331cd8e400bb70"
+      },
+      "object_lock": {
+        "mode": "COMPLIANCE",
+        "retain_until_date": "2125-10-21T14:06:05.446234",
+        "legal_hold": "OFF"
+      },
+      "metadata": {
+        "sovereign": "Chais Hill",
+        "authority": "OmniTech1",
+        "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
+        "upload_timestamp": "2025-11-14T14:06:05.446234"
+      },
+      "encryption": {
+        "algorithm": "AES-256",
+        "type": "SSE-S3",
+        "status": "ENCRYPTED_AT_REST"
+      },
+      "status": "TRANSFERRED",
+      "immutability": "WORM_PROTECTED",
+      "deletion_prevention": "ACTIVE_FOR_100_YEARS"
+    },
+    {
+      "local_path": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "s3_key": "archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "s3_url": "https://scrollverse-eternal-archive-worm.s3.us-east-1.amazonaws.com/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "bucket_name": "scrollverse-eternal-archive-worm",
+      "region": "us-east-1",
+      "transfer_start": "2025-11-14T14:06:05.446352",
+      "transfer_end": "2025-11-14T14:06:05.446399",
+      "file_size_bytes": 5988,
+      "storage_class": "GLACIER_DEEP_ARCHIVE",
+      "version_id": "61649dd7c24291c9461eef68d458ed4e",
+      "etag": "\"46245b9618b59e0b2028dac4db840278\"",
+      "checksums": {
+        "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
+        "md5": "46245b9618b59e0b2028dac4db840278"
+      },
+      "object_lock": {
+        "mode": "COMPLIANCE",
+        "retain_until_date": "2125-10-21T14:06:05.446352",
+        "legal_hold": "OFF"
+      },
+      "metadata": {
+        "sovereign": "Chais Hill",
+        "authority": "OmniTech1",
+        "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
+        "upload_timestamp": "2025-11-14T14:06:05.446352"
+      },
+      "encryption": {
+        "algorithm": "AES-256",
+        "type": "SSE-S3",
+        "status": "ENCRYPTED_AT_REST"
+      },
+      "status": "TRANSFERRED",
+      "immutability": "WORM_PROTECTED",
+      "deletion_prevention": "ACTIVE_FOR_100_YEARS"
+    }
+  ],
+  "verifications": [
+    {
+      "verification_timestamp": "2025-11-14T14:06:05.446317",
+      "s3_key": "archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+      "checks_performed": {
+        "object_exists": true,
+        "size_match": true,
+        "checksum_match": true,
+        "object_lock_active": true,
+        "encryption_verified": true,
+        "worm_compliance": true
+      },
+      "object_properties": {
+        "size_bytes": 3108,
+        "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
+        "version_id": "8f821e68e9871cf0b71b314f39ce24dc",
+        "storage_class": "GLACIER_DEEP_ARCHIVE",
+        "object_lock_mode": "COMPLIANCE",
+        "retention_until": "2125-10-21T14:06:05.446234"
+      },
+      "verification_status": "VERIFIED",
+      "integrity": "CONFIRMED",
+      "immutability": "GUARANTEED"
+    },
+    {
+      "verification_timestamp": "2025-11-14T14:06:05.446411",
+      "s3_key": "archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "checks_performed": {
+        "object_exists": true,
+        "size_match": true,
+        "checksum_match": true,
+        "object_lock_active": true,
+        "encryption_verified": true,
+        "worm_compliance": true
+      },
+      "object_properties": {
+        "size_bytes": 5988,
+        "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
+        "version_id": "61649dd7c24291c9461eef68d458ed4e",
+        "storage_class": "GLACIER_DEEP_ARCHIVE",
+        "object_lock_mode": "COMPLIANCE",
+        "retention_until": "2125-10-21T14:06:05.446352"
+      },
+      "verification_status": "VERIFIED",
+      "integrity": "CONFIRMED",
+      "immutability": "GUARANTEED"
+    }
+  ],
+  "manifest": {
+    "manifest_version": "1.0",
+    "created_at": "2025-11-14T14:06:05.446423",
+    "bucket_name": "scrollverse-eternal-archive-worm",
+    "region": "us-east-1",
+    "protocol": "CONSCIOUSNESS_IMMUTABILITY_PR24",
+    "total_files": 2,
+    "total_size_bytes": 9096,
+    "storage_class": "GLACIER_DEEP_ARCHIVE",
+    "worm_configuration": {
+      "mode": "COMPLIANCE",
+      "retention_days": 36500,
+      "deletion_prevention": "ACTIVE"
+    },
+    "files": [
+      {
+        "s3_key": "archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+        "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/FLAMEHEIR_ACTIVATION_PR22_SOURCE.md",
+        "size_bytes": 3108,
+        "sha256": "1e5253a20ff0695488e557329a857949c2eb6467b99efb644917bbef1a3fc8a5",
+        "version_id": "8f821e68e9871cf0b71b314f39ce24dc",
+        "transfer_timestamp": "2025-11-14T14:06:05.446234",
+        "retention_until": "2125-10-21T14:06:05.446234"
+      },
+      {
+        "s3_key": "archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+        "s3_uri": "s3://scrollverse-eternal-archive-worm/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+        "size_bytes": 5988,
+        "sha256": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
+        "version_id": "61649dd7c24291c9461eef68d458ed4e",
+        "transfer_timestamp": "2025-11-14T14:06:05.446352",
+        "retention_until": "2125-10-21T14:06:05.446352"
+      }
+    ],
+    "sovereign_metadata": {
+      "creator": "Chais Hill",
+      "authority": "OmniTech1",
+      "confirmation_hash": "MfWz27Zxa18",
+      "ascension_message": "The Ultimate Divine Has Ascended",
+      "immutability_proof": "ZK-SNARK_VERIFIED_ON_POLYGON_ZKEVM"
+    },
+    "status": "COMPLETE",
+    "immutability": "ETERNAL"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "archive_name": "CBAP_PR23",
+  "preparation_start": "2025-11-14T14:06:05.443894",
+  "source_files": [
+    {
+      "path": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "size": 5988,
+      "hash": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7"
+    }
+  ],
+  "compression_results": [
+    {
+      "source_file": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.md",
+      "compressed_file": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.compressed.gz",
+      "original_size": 5988,
+      "compressed_size": 2866,
+      "compression_ratio": 0.4786,
+      "original_hash": "b38001d2e9670c5a8609edd1ad617bb76b0c97eaa5126b82ff8f8dda0dd1a6b7",
+      "compressed_hash": "c4b4be93c78ebafae2c804859de763c13f4dea81a261b76d9e9f015db0656baa",
+      "algorithm": "gzip-9",
+      "timestamp": "2025-11-14T14:06:05.443966",
+      "duration_ms": 0
+    }
+  ],
+  "encryption_results": [
+    {
+      "source_file": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.compressed.gz",
+      "encrypted_file": "ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.compressed.gz.enc",
+      "encryption_algorithm": "AES-256-GCM",
+      "key_derivation": "PBKDF2-SHA256",
+      "iterations": 100000,
+      "key_id": "65a62170a604e94f8965b255a1ed709d",
+      "data_size": 2866,
+      "original_hash": "c4b4be93c78ebafae2c804859de763c13f4dea81a261b76d9e9f015db0656baa",
+      "encrypted_hash": "73227e0b42943887b153832f3228f05a770ec9e035972c36200d8ec50c4cfd80",
+      "timestamp": "2025-11-14T14:06:05.444329",
+      "status": "ENCRYPTED",
+      "quantum_resistant": true,
+      "consciousness_bound": true
+    }
+  ],
+  "status": "COMPLETE",
+  "preparation_end": "2025-11-14T14:06:05.444468",
+  "total_files": 1,
+  "storage_summary": {
+    "original_size_bytes": 5988,
+    "compressed_size_bytes": 2866,
+    "overall_compression_ratio": 0.4786,
+    "space_saved_bytes": 3122,
+    "space_saved_percentage": 52.14
+  }
+}

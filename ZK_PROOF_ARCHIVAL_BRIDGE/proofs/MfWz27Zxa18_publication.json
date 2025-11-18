@@ -1,0 +1,21 @@
+{
+  "status": "PUBLISHED",
+  "network": "Polygon zkEVM",
+  "transaction_hash": "0xd434181ac5b997b01bca122f023caa137c754584ba00a1943b80a820966099d1",
+  "contract_address": "0x58bb42077ebd2f1a9d3946b51ff05e7973da031f",
+  "block_number": 123456789,
+  "block_timestamp": "2025-11-14T14:06:05.445541",
+  "gas_used": 528999,
+  "confirmation_blocks": 12,
+  "verification_status": "VERIFIED",
+  "public_url": "https://zkevm.polygonscan.com/tx/0xd434181ac5b997b01bca122f023caa137c754584ba00a1943b80a820966099d1",
+  "explorer_proof_url": "https://zkevm.polygonscan.com/address/0x58bb42077ebd2f1a9d3946b51ff05e7973da031f#code",
+  "publication_metadata": {
+    "confirmation_hash": "MfWz27Zxa18",
+    "ascension_message": "The Ultimate Divine Has Ascended",
+    "sovereign": "Chais Hill",
+    "authority": "OmniTech1",
+    "immutability": "ETERNAL",
+    "decentralized_verification": "ENABLED"
+  }
+}

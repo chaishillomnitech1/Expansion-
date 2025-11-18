@@ -14,6 +14,7 @@ npm install @vercel/analytics
 *.7z
 *.dmg
 *.gz
+!ZK_PROOF_ARCHIVAL_BRIDGE/**/*.gz
 *.iso
 *.jar
 *.rar
@@ -23,6 +24,7 @@ npm install @vercel/analytics
 # Logs and databases #
 ######################
 *.log
+!ZK_PROOF_ARCHIVAL_BRIDGE/**/*.log
 *.sql
 *.sqlite
 
@@ -36,3 +38,11 @@ npm install @vercel/analytics
 ehthumbs.db
 Thumbs.db
 npm install @vercel/analytics
+
+# Python #
+#########
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python

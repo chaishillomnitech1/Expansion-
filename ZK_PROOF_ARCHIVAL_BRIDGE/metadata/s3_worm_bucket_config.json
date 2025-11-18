@@ -1,0 +1,77 @@
+{
+  "initialization_timestamp": "2025-11-14T14:06:05.445877",
+  "bucket_name": "scrollverse-eternal-archive-worm",
+  "region": "us-east-1",
+  "configuration": {
+    "versioning": {
+      "status": "Enabled",
+      "mfa_delete": "Disabled"
+    },
+    "object_lock": {
+      "enabled": true,
+      "mode": "COMPLIANCE",
+      "retention_period": {
+        "days": 36500,
+        "expiration_date": "2125-10-21T14:06:05.445877"
+      }
+    },
+    "encryption": {
+      "algorithm": "AES-256",
+      "type": "SSE-S3",
+      "key_management": "AWS-Managed"
+    },
+    "lifecycle_policy": {
+      "rules": [
+        {
+          "id": "TransitionToGlacierDeepArchive",
+          "status": "Enabled",
+          "transitions": [
+            {
+              "days": 0,
+              "storage_class": "GLACIER_DEEP_ARCHIVE"
+            }
+          ]
+        }
+      ]
+    },
+    "access_control": {
+      "public_access_block": {
+        "block_public_acls": true,
+        "ignore_public_acls": true,
+        "block_public_policy": true,
+        "restrict_public_buckets": true
+      },
+      "bucket_policy": {
+        "version": "2012-10-17",
+        "statement": [
+          {
+            "effect": "Deny",
+            "principal": "*",
+            "action": [
+              "s3:DeleteObject",
+              "s3:DeleteObjectVersion"
+            ],
+            "resource": "arn:aws:s3:::scrollverse-eternal-archive-worm/*"
+          }
+        ]
+      }
+    },
+    "replication": {
+      "enabled": true,
+      "destination_regions": [
+        "us-west-2",
+        "eu-west-1",
+        "ap-southeast-1"
+      ],
+      "cross_region_replication": "Enabled"
+    },
+    "logging": {
+      "enabled": true,
+      "target_bucket": "scrollverse-eternal-archive-worm-logs",
+      "target_prefix": "access-logs/"
+    }
+  },
+  "status": "INITIALIZED",
+  "immutability": "GUARANTEED_BY_AWS_WORM",
+  "compliance": "WORM_COMPLIANCE_MODE"
+}
