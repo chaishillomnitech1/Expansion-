@@ -6,11 +6,9 @@
 *.exe
 *.o
 *.so
-npm install @vercel/analytics
+
 # Packages #
 ############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
 *.7z
 *.dmg
 *.gz
@@ -35,4 +33,23 @@ npm install @vercel/analytics
 .Trashes
 ehthumbs.db
 Thumbs.db
-npm install @vercel/analytics
+
+# Node #
+########
+node_modules/
+package-lock.json
+yarn.lock
+
+# Hardhat #
+###########
+cache/
+artifacts/
+typechain-types/
+coverage/
+coverage.json
+
+# Environment #
+###############
+.env
+.env.local
+.env.*.local
