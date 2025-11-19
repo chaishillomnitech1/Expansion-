@@ -6,7 +6,7 @@
 *.exe
 *.o
 *.so
-npm install @vercel/analytics
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
@@ -35,4 +35,42 @@ npm install @vercel/analytics
 .Trashes
 ehthumbs.db
 Thumbs.db
-npm install @vercel/analytics
+
+# Dependencies #
+################
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs #
+#################
+dist/
+build/
+out/
+artifacts/
+cache/
+
+# Environment #
+###############
+.env
+.env.local
+.env.*.local
+
+# IDE #
+#######
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Hardhat #
+###########
+typechain/
+typechain-types/
+
+# Temporary files #
+###################
+tmp/
+temp/
+*.tmp

@@ -1,0 +1,33 @@
+{
+  "name": "expansion-omnitech1",
+  "version": "1.0.0",
+  "description": "Omnitech1 Expansion - LayerZero Integration with ScrollCoin and Centers of Excellence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests configured yet\" && exit 0",
+    "compile": "echo \"Compile smart contracts\"",
+    "deploy": "echo \"Deploy contracts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chaishillomnitech1/Expansion-.git"
+  },
+  "keywords": [
+    "omnitech1",
+    "layerzero",
+    "scrollcoin",
+    "blockchain",
+    "omnichain",
+    "centers-of-excellence"
+  ],
+  "author": "Chais Hill",
+  "license": "MIT",
+  "dependencies": {
+    "@layerzerolabs/solidity-examples": "^1.1.0",
+    "@openzeppelin/contracts": "^5.0.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.19.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0"
+  }
+}
