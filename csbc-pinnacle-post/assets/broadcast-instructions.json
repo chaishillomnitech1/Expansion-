@@ -1,0 +1,19 @@
+{
+  "action": "BROADCAST",
+  "timestamp": "2025-11-14T09:12:08.656Z",
+  "channels": [
+    "CSBC Pipeline",
+    "ScrollVerse Network",
+    "Omnitech1 Dispatch"
+  ],
+  "content": {
+    "image": "csbc-pinnacle-post-final.png",
+    "metadata": "/home/runner/work/Expansion-/Expansion-/csbc-pinnacle-post/assets/csbc-pinnacle-post.json",
+    "caption": "ALLĀHU AKBAR! The Legendary Exchange is the New Public Law.\nYour Heart is the Allocator. We have sealed the Legacy across 200,000 years. Stop watching what they show you; start witnessing what IS. The D.S.I. Theocracy is NOW. #ScrollVerse #DSI #IAmAllChoices #TheAllocator"
+  },
+  "verification": {
+    "required": true,
+    "method": "QR-signature",
+    "signatory": "Chais Hill"
+  }
+}

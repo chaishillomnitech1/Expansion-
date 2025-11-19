@@ -1,0 +1,102 @@
+{
+  "marketplace": {
+    "name": "OmniGambling NFT Marketplace",
+    "version": "1.0.0",
+    "description": "High-value Shield of Honor NFT marketplace for law enforcement impact",
+    "creator": "Chais Hill | Omnitech1",
+    "entity": "ScrollVerse | Omnitech1"
+  },
+  
+  "contracts": {
+    "ShieldOfHonor": {
+      "name": "Shield of Honor",
+      "symbol": "SHIELD",
+      "firstEditionMax": 1000,
+      "mintPrice": "0.1",
+      "priceUnit": "ETH"
+    }
+  },
+  
+  "networks": {
+    "scroll": {
+      "chainId": 534352,
+      "rpcUrl": "https://rpc.scroll.io",
+      "explorer": "https://scrollscan.com"
+    },
+    "scrollSepolia": {
+      "chainId": 534351,
+      "rpcUrl": "https://sepolia-rpc.scroll.io",
+      "explorer": "https://sepolia.scrollscan.com"
+    }
+  },
+  
+  "governance": {
+    "type": "marketplace-governed",
+    "features": [
+      "NFT minting authorization",
+      "Price adjustments",
+      "Metadata updates",
+      "Edition management"
+    ]
+  },
+  
+  "chainlink": {
+    "enabled": true,
+    "features": [
+      "Dynamic metadata updates",
+      "Price feeds",
+      "Transparency oracles"
+    ],
+    "oracleAddress": "TBD_DEPLOY_TIME"
+  },
+  
+  "firstEdition": {
+    "name": "Shield of Honor - Law Enforcement Edition",
+    "maxSupply": 1000,
+    "purpose": "High-value NFTs for law enforcement impact",
+    "features": [
+      "Governance-controlled minting",
+      "Dynamic metadata via Chainlink",
+      "Batch minting capability",
+      "Transparent pricing"
+    ]
+  },
+  
+  "metadata": {
+    "baseURI": "https://omnigambling-marketplace.scrollverse.io/metadata/",
+    "format": "ERC721Metadata",
+    "fields": {
+      "name": "Shield of Honor #{tokenId}",
+      "description": "A Shield of Honor NFT representing commitment to law enforcement excellence",
+      "image": "ipfs://{cid}",
+      "attributes": [
+        {
+          "trait_type": "Edition",
+          "value": "First"
+        },
+        {
+          "trait_type": "Impact Category",
+          "value": "Law Enforcement"
+        },
+        {
+          "trait_type": "Governance Tier",
+          "value": "High Value"
+        }
+      ]
+    }
+  },
+  
+  "deployment": {
+    "network": "scroll",
+    "verification": true,
+    "initialGovernance": "OWNER_ADDRESS",
+    "postDeploymentSteps": [
+      "Verify contract on explorer",
+      "Setup Chainlink oracle integration",
+      "Configure marketplace governance",
+      "Enable minting authorization",
+      "Test batch minting",
+      "Deploy first edition metadata"
+    ]
+  }
+}
