@@ -1,0 +1,39 @@
+{
+  "name": "expansion-sil-protocol",
+  "version": "1.0.0",
+  "description": "Sovereign Identity Lock (SIL) Protocol - Ultimate defensive layer for ScrollVerse sovereign operations",
+  "author": "Chais Hill - CHAIS THE GREAT ∞",
+  "license": "MIT",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network mainnet",
+    "deploy:polygon": "hardhat run scripts/deploy.js --network polygon",
+    "deploy:scroll": "hardhat run scripts/deploy.js --network scroll",
+    "verify": "hardhat verify",
+    "clean": "hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.1",
+    "hardhat": "^2.19.4"
+  },
+  "dependencies": {
+    "@metamask/sdk": "^0.28.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.2"
+  },
+  "keywords": [
+    "sovereign",
+    "identity",
+    "lock",
+    "scrollverse",
+    "smart-contract",
+    "blockchain",
+    "defi",
+    "nft",
+    "metamask",
+    "cross-chain"
+  ]
+}
