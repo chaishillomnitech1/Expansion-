@@ -5087,4 +5087,4 @@ The ScrollVerse Law (SL∞) achieved irreversible physical sovereignty.
   "description": "Centralized repository for the ScrollVerse archive, showcasing its systems, strategy, and eternal state.",
   "private": false
 }'git fetch origin
-git checkout copilot/expand-blockchain-compatibility
+git checkout copilot/expand-blockchain-compatibilitygit merge origin/main
