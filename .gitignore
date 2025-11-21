@@ -6,6 +6,9 @@
 *.exe
 *.o
 *.so
+*.pyc
+*.pyo
+__pycache__/
 npm install @vercel/analytics
 # Packages #
 ############
