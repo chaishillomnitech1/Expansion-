@@ -1,0 +1,97 @@
+name: Milestone Status Tracker
+
+on:
+  push:
+    paths:
+      - 'TRACKING_LEDGERS/FINAL_ACQUISITIONS_PHASE8.md'
+      - 'TRACKING_LEDGERS/CONSTRUCTION_MILESTONES.md'
+    branches:
+      - main
+      - 'copilot/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-milestone-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need at least 2 commits to see what changed
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          # Get list of changed files in the last commit
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep -E "TRACKING_LEDGERS/(FINAL_ACQUISITIONS_PHASE8|CONSTRUCTION_MILESTONES)" || echo "")
+          echo "changed_files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "Changed files: $CHANGED_FILES"
+
+      - name: Get commit metadata
+        id: commit-metadata
+        run: |
+          # Extract commit message and author
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B | head -n 1)
+          COMMIT_AUTHOR=$(git log -1 --pretty=%an)
+          COMMIT_EMAIL=$(git log -1 --pretty=%ae)
+          COMMIT_TIME=$(git log -1 --pretty=%cI)
+          
+          echo "commit_message=$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
+          echo "commit_author=$COMMIT_AUTHOR" >> $GITHUB_OUTPUT
+          echo "commit_email=$COMMIT_EMAIL" >> $GITHUB_OUTPUT
+          echo "commit_time=$COMMIT_TIME" >> $GITHUB_OUTPUT
+          
+          echo "Commit: $COMMIT_MESSAGE"
+          echo "Author: $COMMIT_AUTHOR <$COMMIT_EMAIL>"
+          echo "Time: $COMMIT_TIME"
+
+      - name: Update STATUS.log
+        env:
+          CHANGED_FILES: ${{ steps.changed-files.outputs.changed_files }}
+          COMMIT_MESSAGE: ${{ steps.commit-metadata.outputs.commit_message }}
+          COMMIT_AUTHOR: ${{ steps.commit-metadata.outputs.commit_author }}
+          GITHUB_ACTOR: ${{ github.actor }}
+        run: |
+          # Run the milestone status updater script
+          python3 .github/scripts/update_milestone_status.py
+
+      - name: Check for changes in STATUS.log
+        id: check-changes
+        run: |
+          # Check if STATUS.log was modified
+          if git diff --quiet TRACKING_LEDGERS/STATUS.log; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes to STATUS.log"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "STATUS.log was updated"
+          fi
+
+      - name: Commit and push STATUS.log updates
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "Milestone Tracker Bot"
+          git config user.email "milestone-tracker@github-actions"
+          
+          # Add the STATUS.log file
+          git add TRACKING_LEDGERS/STATUS.log
+          
+          # Create enhanced commit message with metadata
+          git commit -m "chore: Update milestone status tracking" \
+            -m "" \
+            -m "Automated update triggered by: ${{ steps.commit-metadata.outputs.commit_author }}" \
+            -m "Original commit: ${{ steps.commit-metadata.outputs.commit_message }}" \
+            -m "Timestamp: ${{ steps.commit-metadata.outputs.commit_time }}" \
+            -m "Changed files: ${{ steps.changed-files.outputs.changed_files }}" \
+            -m "" \
+            -m "[skip ci]"
+          
+          git push

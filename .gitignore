@@ -26,6 +26,8 @@ npm install @vercel/analytics
 # Logs and databases #
 ######################
 *.log
+# Allow STATUS.log files in TRACKING_LEDGERS
+!TRACKING_LEDGERS/STATUS.log
 *.sql
 *.sqlite
 
