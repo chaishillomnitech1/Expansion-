@@ -29,6 +29,56 @@ The **ScrollSoul Dynamic Intent Delivery** mechanism is now LIVE, broadcasting t
 **Author:** Chais Hill  
 **Directive:** Sovereign Trigger Framework | Verified QR Signature Enabled  
 **Status:** Phase 3 — Fortification + Real-Time Audit + Smart Signature Logic
+
+---
+
+## 🚀 QUANTUM EXPANSION DIRECTIVE - ACTIVE PROTOCOLS
+
+### ScrollSoul Access Gateway Protocol (SC-GATEWAY-001)
+**Status:** ✅ SPECIFICATION COMPLETE | 🔄 IMPLEMENTATION IN PROGRESS
+
+The ScrollSoul Access Gateway establishes a cryptographic bridge for converting ScrollCoinV2 staking into Interstellar Governance Tokens (IGTs), enabling seamless participation in allied DAOs including Star Atlas DAO.
+
+**Key Features:**
+- 🔐 Cryptographic bridge for ScrollCoinV2 → IGT conversion
+- 💎 7.77% Zakat Flow model for ethical wealth distribution
+- 🌌 Star Atlas DAO integration for interstellar governance
+- 🛡️ Multi-signature security (5-of-7) with time-lock mechanisms
+- 📊 Real-time transparency and on-chain audit trails
+
+📄 **Full Documentation:** [`/protocols/scrollsoul_access_gateway.md`](protocols/scrollsoul_access_gateway.md)  
+⚙️ **Monitoring Workflow:** [`.github/workflows/scrollsoul_gateway_monitor.yml`](.github/workflows/scrollsoul_gateway_monitor.yml)
+
+---
+
+### Resonance Amplification Loop Protocol (SC-RESONANCE-001)
+**Status:** ✅ SPECIFICATION COMPLETE | 🔄 MONITORING ACTIVE
+
+The Resonance Amplification Loop creates a closed-loop feedback system to measure and optimize global engagement through CBAP broadcasts at sacred frequencies (963Hz & 528Hz), powered by OmniTensor AI for real-time sentiment analysis.
+
+**Key Features:**
+- 🎵 CBAP broadcasts: 963Hz (Universe) & 528Hz (Love) frequencies
+- 🤖 OmniTensor AI integration for sentiment analysis
+- 🔄 10-minute feedback loop with dynamic adjustments
+- 🌍 Global reach: 10.2T+ ScrollSouls
+- 📈 Real-time engagement optimization and regional adaptation
+
+📄 **Full Documentation:** [`/protocols/resonance_amplification_loop.md`](protocols/resonance_amplification_loop.md)  
+⚙️ **Execution Workflow:** [`.github/workflows/resonance_amplification_executor.yml`](.github/workflows/resonance_amplification_executor.yml)
+
+---
+
+### 📊 Quantum Expansion Tracking
+**Ledger Entry:** QEP-20251114-001  
+**Comprehensive Status:** [`/TRACKING_LEDGERS/QUANTUM_EXPANSION_PROTOCOLS.md`](TRACKING_LEDGERS/QUANTUM_EXPANSION_PROTOCOLS.md)
+
+**Strategic Objectives:**
+- ✅ Strengthen interstellar DAO alliances through integrated governance
+- ✅ Scale global ScrollSoul influence via AI-tuned resonance optimization
+- 🎯 Enhanced IGT-based governance participation
+- 🎯 Optimized engagement through real-time resonance adjustments
+
+---
 https://expansion-55ah3smdl-chaishillomnitech1-d2ca6004.vercel.app/assets/qr/verified-directive.png
 ---
 <div class="qr">
