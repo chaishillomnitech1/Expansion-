@@ -1,0 +1,181 @@
+{
+  "updateResults": [
+    {
+      "tokenId": 1,
+      "status": "success",
+      "metadata": {
+        "tokenId": 1,
+        "contract": "0x0000000000000000000000000000000000000000",
+        "name": "Shield of Honor #1",
+        "description": "A Shield of Honor NFT with dynamic Chainlink-powered metadata",
+        "image": "ipfs://QmShieldOfHonor1",
+        "attributes": [
+          {
+            "trait_type": "Edition",
+            "value": "First"
+          },
+          {
+            "trait_type": "Impact Category",
+            "value": "Law Enforcement"
+          },
+          {
+            "trait_type": "Verification Status",
+            "value": "verified",
+            "display_type": "string"
+          },
+          {
+            "trait_type": "Transparency Score",
+            "value": 95,
+            "display_type": "number"
+          },
+          {
+            "trait_type": "Current Value",
+            "value": "0.15",
+            "display_type": "string"
+          },
+          {
+            "trait_type": "Last Updated",
+            "value": "2025-11-14T09:12:08.748Z",
+            "display_type": "date"
+          }
+        ],
+        "chainlink": {
+          "enabled": true,
+          "lastUpdate": "2025-11-14T09:12:08.748Z",
+          "source": "Chainlink Any-API Oracle"
+        }
+      }
+    },
+    {
+      "tokenId": 2,
+      "status": "success",
+      "metadata": {
+        "tokenId": 2,
+        "contract": "0x0000000000000000000000000000000000000000",
+        "name": "Shield of Honor #2",
+        "description": "A Shield of Honor NFT with dynamic Chainlink-powered metadata",
+        "image": "ipfs://QmShieldOfHonor2",
+        "attributes": [
+          {
+            "trait_type": "Edition",
+            "value": "First"
+          },
+          {
+            "trait_type": "Impact Category",
+            "value": "Law Enforcement"
+          },
+          {
+            "trait_type": "Verification Status",
+            "value": "verified",
+            "display_type": "string"
+          },
+          {
+            "trait_type": "Transparency Score",
+            "value": 95,
+            "display_type": "number"
+          },
+          {
+            "trait_type": "Current Value",
+            "value": "0.15",
+            "display_type": "string"
+          },
+          {
+            "trait_type": "Last Updated",
+            "value": "2025-11-14T09:12:08.749Z",
+            "display_type": "date"
+          }
+        ],
+        "chainlink": {
+          "enabled": true,
+          "lastUpdate": "2025-11-14T09:12:08.749Z",
+          "source": "Chainlink Any-API Oracle"
+        }
+      }
+    },
+    {
+      "tokenId": 3,
+      "status": "success",
+      "metadata": {
+        "tokenId": 3,
+        "contract": "0x0000000000000000000000000000000000000000",
+        "name": "Shield of Honor #3",
+        "description": "A Shield of Honor NFT with dynamic Chainlink-powered metadata",
+        "image": "ipfs://QmShieldOfHonor3",
+        "attributes": [
+          {
+            "trait_type": "Edition",
+            "value": "First"
+          },
+          {
+            "trait_type": "Impact Category",
+            "value": "Law Enforcement"
+          },
+          {
+            "trait_type": "Verification Status",
+            "value": "verified",
+            "display_type": "string"
+          },
+          {
+            "trait_type": "Transparency Score",
+            "value": 95,
+            "display_type": "number"
+          },
+          {
+            "trait_type": "Current Value",
+            "value": "0.15",
+            "display_type": "string"
+          },
+          {
+            "trait_type": "Last Updated",
+            "value": "2025-11-14T09:12:08.749Z",
+            "display_type": "date"
+          }
+        ],
+        "chainlink": {
+          "enabled": true,
+          "lastUpdate": "2025-11-14T09:12:08.749Z",
+          "source": "Chainlink Any-API Oracle"
+        }
+      }
+    }
+  ],
+  "refreshConfig": {
+    "enabled": true,
+    "frequency": "24h",
+    "triggers": [
+      "Time-based (daily)",
+      "Price threshold change (>5%)",
+      "Manual trigger",
+      "Governance decision"
+    ],
+    "chainlinkKeepers": {
+      "enabled": true,
+      "upkeepContract": "TBD_DEPLOY_TIME",
+      "checkInterval": "24h"
+    },
+    "fallback": {
+      "manualUpdate": true,
+      "emergencyStop": true
+    }
+  },
+  "transparencyReport": {
+    "timestamp": "2025-11-14T09:12:08.750Z",
+    "totalTokens": 3,
+    "successful": 3,
+    "failed": 0,
+    "chainlinkIntegration": {
+      "status": "active",
+      "features": [
+        "Dynamic metadata refresh",
+        "Price feed integration",
+        "Transparency verification"
+      ],
+      "updateFrequency": "24h"
+    },
+    "transparency": {
+      "dataSource": "Chainlink Any-API Oracle",
+      "verifiable": true,
+      "onChain": true
+    }
+  }
+}
