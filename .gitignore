@@ -44,6 +44,30 @@ reports/
 ehthumbs.db
 Thumbs.db
 
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Environment variables
+.env
+.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 # Dependencies #
 ################
 node_modules/
