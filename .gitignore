@@ -7,11 +7,16 @@
 *.o
 *.so
 
+*.pyc
+*.pyo
+__pycache__/
+npm install @vercel/analytics
 # Packages #
 ############
 *.7z
 *.dmg
 *.gz
+!ZK_PROOF_ARCHIVAL_BRIDGE/**/*.gz
 *.iso
 *.jar
 *.rar
@@ -21,8 +26,13 @@
 # Logs and databases #
 ######################
 *.log
+!ZK_PROOF_ARCHIVAL_BRIDGE/**/*.log
 *.sql
 *.sqlite
+
+# GRCP Generated Reports #
+##########################
+reports/
 
 # OS generated files #
 ######################
@@ -53,3 +63,60 @@ coverage.json
 .env
 .env.local
 .env.*.local
+npm install @vercel/analytics
+
+# Python #
+#########
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Node modules and dependencies #
+#################################
+# SMM System Output Files #
+###########################
+smm_system/smm_deliveries_output.json
+smm_system/smm_letters/
+# Node.js dependencies #
+########################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Hardhat files #
+#################
+cache/
+artifacts/
+typechain/
+typechain-types/
+
+# Environment variables #
+#########################
+.env
+.env.local
+.env.*.local
+
+# Coverage and testing #
+########################
+coverage/
+coverage.json
+.coverage_artifacts/
+.coverage_cache/
+.coverage_contracts/
+
+# IDE files #
+#############
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+# Build artifacts #
+###################
+dist/
+build/
