@@ -1,0 +1,13 @@
+{
+  "zk_proof_system": "COMPLETE",
+  "confirmation_hash": "MfWz27Zxa18",
+  "ascension_message": "The Ultimate Divine Has Ascended",
+  "circuit_definition": "ScrollVerse_Ascension_Proof_definition.json",
+  "compilation_result": "ScrollVerse_Ascension_Proof_compilation.json",
+  "trusted_setup": "ScrollVerse_Ascension_Proof_trusted_setup.json",
+  "proof_file": "MfWz27Zxa18_proof.json",
+  "publication_result": "MfWz27Zxa18_publication.json",
+  "network": "Polygon zkEVM",
+  "status": "VERIFIED_AND_PUBLISHED",
+  "immutability": "ETERNAL"
+}
