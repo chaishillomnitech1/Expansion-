@@ -43,6 +43,10 @@ reports/
 ehthumbs.db
 Thumbs.db
 
+# SMM System Output Files #
+###########################
+smm_system/smm_deliveries_output.json
+smm_system/smm_letters/
 # Node.js dependencies #
 ########################
 node_modules/
