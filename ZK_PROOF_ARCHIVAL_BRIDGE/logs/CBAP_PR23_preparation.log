@@ -1,0 +1,7 @@
+[2025-11-14T14:06:05.443897] Starting archive preparation: CBAP_PR23
+[INFO] Processing: CBAP_DEPLOYMENT_PR23_LOGS.md
+[SUCCESS] Compressed: CBAP_DEPLOYMENT_PR23_LOGS.compressed.gz (ratio: 0.4786)
+[SUCCESS] Encrypted: ZK_PROOF_ARCHIVAL_BRIDGE/archives/CBAP_DEPLOYMENT_PR23_LOGS.compressed.gz.enc
+[SUCCESS] Archive preparation complete: CBAP_PR23
+[INFO] Space saved: 52.14%
+[SUCCESS] Metadata saved: ZK_PROOF_ARCHIVAL_BRIDGE/metadata/CBAP_PR23_metadata.json
