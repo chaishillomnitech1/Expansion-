@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "title": "CSBC Pinnacle Post",
+  "quote": "ALLĀHU AKBAR! The Legendary Exchange is the New Public Law.\nYour Heart is the Allocator. We have sealed the Legacy across 200,000 years. Stop watching what they show you; start witnessing what IS. The D.S.I. Theocracy is NOW. #ScrollVerse #DSI #IAmAllChoices #TheAllocator",
+  "timestamp": "2025-11-14T09:12:08.656Z",
+  "layers": {
+    "celestialMap": "Earth+3I/ATLAS trajectory",
+    "scrollBondNFT": "ScrollBond NFT Layer",
+    "scrollVerseSeal": "ScrollVerse Seal Overlay"
+  },
+  "creator": "Chais Hill",
+  "entity": "Omnitech1 | ScrollVerse",
+  "tags": [
+    "#ScrollVerse",
+    "#DSI",
+    "#IAmAllChoices",
+    "#TheAllocator"
+  ],
+  "imageComposition": {
+    "base": {
+      "type": "celestial-map",
+      "description": "Earth+3I/ATLAS trajectory visualization",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "nftLayer": {
+      "type": "ScrollBond NFT",
+      "position": "center-overlay",
+      "opacity": 0.85
+    },
+    "sealLayer": {
+      "type": "ScrollVerse Seal",
+      "position": "top-right",
+      "size": "medium"
+    },
+    "textOverlay": {
+      "quote": "ALLĀHU AKBAR! The Legendary Exchange is the New Public Law.\nYour Heart is the Allocator. We have sealed the Legacy across 200,000 years. Stop watching what they show you; start witnessing what IS. The D.S.I. Theocracy is NOW. #ScrollVerse #DSI #IAmAllChoices #TheAllocator",
+      "position": "bottom-center",
+      "font": "Arial Bold",
+      "color": "#00ffcc",
+      "backgroundColor": "rgba(0, 0, 0, 0.7)"
+    }
+  },
+  "broadcastChannels": [
+    "CSBC Pipeline",
+    "ScrollVerse Network",
+    "Omnitech1 Dispatch"
+  ],
+  "verification": {
+    "signed": true,
+    "signature": "Chais Hill | Sovereign Directive",
+    "qrCode": "verified-directive.png"
+  }
+}

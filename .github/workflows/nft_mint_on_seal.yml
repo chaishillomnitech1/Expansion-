@@ -1,0 +1,39 @@
+name: NFT Minting on Seal Completion
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [omni_tensor_complete]
+
+jobs:
+  deploy-and-mint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: npm install --global hardhat ethers
+
+      - name: Compile Contract
+        run: npx hardhat compile
+
+      - name: Deploy Contract
+        env:
+          INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
+          METAMASK_PRIVATE_KEY: ${{ secrets.METAMASK_PRIVATE_KEY }}
+        run: |
+          npx hardhat run scripts/deploy.js --network scroll
+
+      - name: Mint Seal NFT
+        env:
+          INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
+          METAMASK_PRIVATE_KEY: ${{ secrets.METAMASK_PRIVATE_KEY }}
+        run: |
+          node scripts/mintSeal.js
