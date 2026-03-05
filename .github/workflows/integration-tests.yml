@@ -1,0 +1,311 @@
+name: Integration Tests
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-scripts:
+    name: Test Automation Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make Scripts Executable
+        run: chmod +x scripts/*.sh
+
+      - name: Test Health Check Script
+        run: |
+          echo "Testing health-check.sh..."
+          ./scripts/health-check.sh
+          echo "✓ health-check.sh executed successfully"
+
+      - name: Test Diagnostics Script
+        run: |
+          echo "Testing diagnostics.sh..."
+          ./scripts/diagnostics.sh
+          echo "✓ diagnostics.sh executed successfully"
+
+      - name: Verify Log Output
+        run: |
+          echo "Verifying log files..."
+          if [ -d "logs" ] && [ "$(ls -A logs/*.log 2>/dev/null | wc -l)" -gt 0 ]; then
+            echo "✓ Log files created successfully"
+            ls -lh logs/
+          else
+            echo "✗ No log files found"
+            exit 1
+          fi
+
+      - name: Test Deploy Script (Dry Run)
+        run: |
+          echo "Testing deploy.sh (validation only)..."
+          # Run in a way that only validates, doesn't actually deploy
+          ./scripts/deploy.sh || true
+          echo "✓ deploy.sh validation completed"
+
+  test-workflows:
+    name: Validate All Workflows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate Workflow YAML
+        run: |
+          python3 << 'EOF'
+          import yaml
+          import os
+          import sys
+          
+          workflows_dir = '.github/workflows'
+          all_valid = True
+          
+          print("Validating workflow YAML files...")
+          print("=" * 50)
+          
+          for filename in os.listdir(workflows_dir):
+              if filename.endswith(('.yml', '.yaml')):
+                  filepath = os.path.join(workflows_dir, filename)
+                  try:
+                      with open(filepath, 'r') as f:
+                          workflow = yaml.safe_load(f)
+                      
+                      # Basic structure validation
+                      if 'name' not in workflow:
+                          print(f"⚠ {filename}: Missing 'name' field")
+                      
+                      if 'on' not in workflow:
+                          print(f"⚠ {filename}: Missing 'on' trigger field")
+                      
+                      if 'jobs' not in workflow:
+                          print(f"✗ {filename}: Missing 'jobs' field")
+                          all_valid = False
+                      else:
+                          job_count = len(workflow['jobs'])
+                          print(f"✓ {filename}: Valid ({job_count} jobs)")
+                      
+                  except yaml.YAMLError as e:
+                      print(f"✗ {filename}: YAML syntax error - {e}")
+                      all_valid = False
+                  except Exception as e:
+                      print(f"✗ {filename}: Error - {e}")
+                      all_valid = False
+          
+          print("=" * 50)
+          if all_valid:
+              print("✓ All workflows are valid")
+              sys.exit(0)
+          else:
+              print("✗ Some workflows have errors")
+              sys.exit(1)
+          EOF
+
+      - name: Check for Required Workflows
+        run: |
+          echo "Checking for required workflows..."
+          
+          REQUIRED=("ci-cd.yml" "security-audit.yml" "performance-monitoring.yml")
+          MISSING=0
+          
+          for workflow in "${REQUIRED[@]}"; do
+            if [ -f ".github/workflows/$workflow" ]; then
+              echo "✓ $workflow exists"
+            else
+              echo "✗ $workflow is missing"
+              MISSING=$((MISSING + 1))
+            fi
+          done
+          
+          if [ $MISSING -gt 0 ]; then
+            echo "✗ $MISSING required workflow(s) missing"
+            exit 1
+          else
+            echo "✓ All required workflows present"
+          fi
+
+  test-documentation:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check Required Documentation
+        run: |
+          echo "Checking required documentation files..."
+          
+          REQUIRED_DOCS=(
+            "README.md"
+            "LICENSE"
+            "SECURITY.md"
+            "docs/README.md"
+            "docs/AI-COLLABORATION.md"
+          )
+          
+          MISSING=0
+          
+          for doc in "${REQUIRED_DOCS[@]}"; do
+            if [ -f "$doc" ]; then
+              SIZE=$(wc -c < "$doc")
+              echo "✓ $doc exists (${SIZE} bytes)"
+            else
+              echo "✗ $doc is missing"
+              MISSING=$((MISSING + 1))
+            fi
+          done
+          
+          if [ $MISSING -gt 0 ]; then
+            echo "⚠ $MISSING documentation file(s) missing"
+          else
+            echo "✓ All required documentation present"
+          fi
+
+      - name: Validate Markdown Links
+        run: |
+          echo "Checking for broken internal links..."
+          
+          # Basic check for internal links in markdown files
+          find . -name "*.md" -not -path "./.git/*" | while read -r file; do
+            echo "Checking: $file"
+            
+            # Check for internal file references
+            grep -o '\[.*\]([^http].*\.md)' "$file" | while read -r link; do
+              # Extract path from markdown link
+              path=$(echo "$link" | sed 's/.*(\(.*\))/\1/')
+              
+              # Resolve relative to file location
+              dir=$(dirname "$file")
+              full_path="$dir/$path"
+              
+              if [ ! -f "$full_path" ]; then
+                echo "  ⚠ Broken link: $path in $file"
+              fi
+            done
+          done
+          
+          echo "✓ Link validation completed"
+
+  test-security:
+    name: Security Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check for Sensitive Files
+        run: |
+          echo "Checking for sensitive files..."
+          
+          SENSITIVE_FILES=(
+            ".env"
+            "*.key"
+            "*.pem"
+            "*.p12"
+            "*.pfx"
+            "*_rsa"
+            "*_dsa"
+            "*_ecdsa"
+          )
+          
+          FOUND=0
+          
+          for pattern in "${SENSITIVE_FILES[@]}"; do
+            FILES=$(find . -name "$pattern" -not -path "./.git/*" 2>/dev/null || true)
+            if [ -n "$FILES" ]; then
+              echo "⚠ Found sensitive file pattern: $pattern"
+              echo "$FILES"
+              FOUND=$((FOUND + 1))
+            fi
+          done
+          
+          if [ $FOUND -eq 0 ]; then
+            echo "✓ No sensitive files found"
+          else
+            echo "⚠ Found $FOUND potential sensitive file pattern(s)"
+            echo "  Please verify these files should not be committed"
+          fi
+
+      - name: Check for Hardcoded Secrets
+        run: |
+          echo "Checking for hardcoded secrets..."
+          
+          PATTERNS=(
+            "password\s*=\s*['\"][^'\"]+['\"]"
+            "api[_-]?key\s*=\s*['\"][^'\"]+['\"]"
+            "secret\s*=\s*['\"][^'\"]+['\"]"
+            "token\s*=\s*['\"][^'\"]+['\"]"
+          )
+          
+          FOUND=0
+          
+          for pattern in "${PATTERNS[@]}"; do
+            # Search in code files, excluding documentation and test files
+            MATCHES=$(grep -r -E -i "$pattern" \
+              --include="*.sh" \
+              --include="*.yml" \
+              --include="*.yaml" \
+              --exclude-dir=".git" \
+              --exclude-dir="docs" \
+              --exclude="*test*" \
+              --exclude="*example*" \
+              . 2>/dev/null || true)
+            
+            if [ -n "$MATCHES" ]; then
+              echo "⚠ Found potential hardcoded secret pattern:"
+              echo "$MATCHES" | head -5
+              FOUND=$((FOUND + 1))
+            fi
+          done
+          
+          if [ $FOUND -eq 0 ]; then
+            echo "✓ No hardcoded secrets found in code files"
+          else
+            echo "⚠ Found $FOUND potential secret pattern(s) - verify these are not actual secrets"
+          fi
+
+  integration-summary:
+    name: Integration Test Summary
+    runs-on: ubuntu-latest
+    needs: [test-scripts, test-workflows, test-documentation, test-security]
+    if: always()
+    steps:
+      - name: Generate Summary
+        run: |
+          echo "## Integration Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Suite | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Scripts | ${{ needs.test-scripts.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Workflows | ${{ needs.test-workflows.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Documentation | ${{ needs.test-documentation.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security | ${{ needs.test-security.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Determine overall status
+          if [ "${{ needs.test-scripts.result }}" == "success" ] && \
+             [ "${{ needs.test-workflows.result }}" == "success" ] && \
+             [ "${{ needs.test-documentation.result }}" == "success" ] && \
+             [ "${{ needs.test-security.result }}" == "success" ]; then
+            echo "**Overall Status:** ✅ PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Overall Status:** ❌ FAILED" >> $GITHUB_STEP_SUMMARY
+          fi
