@@ -44,12 +44,33 @@ reports/
 ehthumbs.db
 Thumbs.db
 
+# Dependencies #
+################
 # Node #
 ########
 node_modules/
 package-lock.json
 yarn.lock
 
+# Build artifacts #
+###################
+dist/
+build/
+*.cache
+.next/
+out/
+
+# Environment files #
+#####################
+.env
+.env.local
+.env.*.local
+
+# Temporary files #
+###################
+*.tmp
+*.swp
+*~
 # Hardhat #
 ###########
 cache/
