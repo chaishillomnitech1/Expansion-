@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+
 *.pyc
 *.pyo
 __pycache__/
@@ -43,6 +44,8 @@ reports/
 ehthumbs.db
 Thumbs.db
 
+# Node modules and dependencies #
+#################################
 # SMM System Output Files #
 ###########################
 smm_system/smm_deliveries_output.json
@@ -69,6 +72,21 @@ typechain-types/
 .env.local
 .env.*.local
 
+# Coverage and testing #
+########################
+coverage/
+coverage.json
+.coverage_artifacts/
+.coverage_cache/
+.coverage_contracts/
+
+# IDE files #
+#############
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
 # Build artifacts #
 ###################
 dist/
