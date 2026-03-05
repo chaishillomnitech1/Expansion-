@@ -1,4 +1,12 @@
 {
+  "name": "expansion-omnitech1",
+  "version": "1.0.0",
+  "description": "Omnitech1 Expansion - LayerZero Integration with ScrollCoin and Centers of Excellence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests configured yet\" && exit 0",
+    "compile": "echo \"Compile smart contracts\"",
+    "deploy": "echo \"Deploy contracts\""
   "name": "omnitech1-inter-realm-architecture",
   "version": "1.0.0",
   "description": "Trustless Inter-Realm Architecture for the OmniGambling Revolution - Secure cross-realm and intergalactic digital asset transmission with zk-rollup scalability",
@@ -32,6 +40,23 @@
     "type": "git",
     "url": "https://github.com/chaishillomnitech1/Expansion-.git"
   },
+  "keywords": [
+    "omnitech1",
+    "layerzero",
+    "scrollcoin",
+    "blockchain",
+    "omnichain",
+    "centers-of-excellence"
+  ],
+  "author": "Chais Hill",
+  "license": "MIT",
+  "dependencies": {
+    "@layerzerolabs/solidity-examples": "^1.1.0",
+    "@openzeppelin/contracts": "^5.0.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.19.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0"
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"

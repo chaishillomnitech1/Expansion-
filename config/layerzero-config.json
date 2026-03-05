@@ -1,0 +1,128 @@
+{
+  "network": "mainnet",
+  "version": "2.0",
+  "description": "LayerZero omnichain configuration for ScrollCoin and Omnitech1 infrastructure",
+  "contracts": {
+    "scrollCoin": {
+      "address": "TBD",
+      "chainId": 1,
+      "network": "ethereum"
+    },
+    "omniChainBridge": {
+      "address": "TBD",
+      "chainId": 1,
+      "network": "ethereum"
+    }
+  },
+  "endpoints": {
+    "ethereum": {
+      "chainId": 1,
+      "lzChainId": 101,
+      "endpoint": "0x66A71Dcef29A0fFBDBE3c6a460a3B5BC225Cd675",
+      "enabled": true,
+      "gasLimit": 200000,
+      "nativeFee": "0.01"
+    },
+    "bsc": {
+      "chainId": 56,
+      "lzChainId": 102,
+      "endpoint": "0x3c2269811836af69497E5F486A85D7316753cf62",
+      "enabled": true,
+      "gasLimit": 200000,
+      "nativeFee": "0.01"
+    },
+    "polygon": {
+      "chainId": 137,
+      "lzChainId": 109,
+      "endpoint": "0x3c2269811836af69497E5F486A85D7316753cf62",
+      "enabled": true,
+      "gasLimit": 200000,
+      "nativeFee": "0.01"
+    },
+    "avalanche": {
+      "chainId": 43114,
+      "lzChainId": 106,
+      "endpoint": "0x3c2269811836af69497E5F486A85D7316753cf62",
+      "enabled": true,
+      "gasLimit": 200000,
+      "nativeFee": "0.01"
+    },
+    "arbitrum": {
+      "chainId": 42161,
+      "lzChainId": 110,
+      "endpoint": "0x3c2269811836af69497E5F486A85D7316753cf62",
+      "enabled": true,
+      "gasLimit": 200000,
+      "nativeFee": "0.01"
+    },
+    "optimism": {
+      "chainId": 10,
+      "lzChainId": 111,
+      "endpoint": "0x3c2269811836af69497E5F486A85D7316753cf62",
+      "enabled": true,
+      "gasLimit": 200000,
+      "nativeFee": "0.01"
+    }
+  },
+  "bridgeConfig": {
+    "minAmount": "1000000000000000000",
+    "maxAmount": "1000000000000000000000000",
+    "feeBasisPoints": 50,
+    "confirmationsRequired": {
+      "ethereum": 12,
+      "bsc": 15,
+      "polygon": 128,
+      "avalanche": 1,
+      "arbitrum": 1,
+      "optimism": 1
+    }
+  },
+  "security": {
+    "pausable": true,
+    "rateLimiting": {
+      "enabled": true,
+      "maxTransfersPerHour": 100,
+      "maxValuePerHour": "100000000000000000000000"
+    },
+    "whitelist": {
+      "enabled": false,
+      "addresses": []
+    },
+    "blacklist": {
+      "enabled": true,
+      "addresses": []
+    }
+  },
+  "monitoring": {
+    "alertThresholds": {
+      "largeTransfer": "10000000000000000000000",
+      "failedTransfers": 5,
+      "suspiciousActivity": true
+    },
+    "webhooks": {
+      "enabled": true,
+      "endpoints": [
+        "https://expansion-three.vercel.app/api/layerzero/webhooks"
+      ]
+    }
+  },
+  "gasOptimization": {
+    "autoAdjust": true,
+    "maxGasPrice": "100000000000",
+    "priorityFee": "2000000000"
+  },
+  "deployment": {
+    "deployer": "TBD",
+    "deployedAt": "TBD",
+    "version": "1.0.0",
+    "verified": false
+  },
+  "governance": {
+    "multisig": {
+      "address": "TBD",
+      "requiredSignatures": 3,
+      "owners": []
+    },
+    "timelockDelay": 172800
+  }
+}

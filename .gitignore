@@ -46,6 +46,10 @@ reports/
 ehthumbs.db
 Thumbs.db
 
+# Dependencies #
+################
+node_modules/
+package-lock.json
 # Node modules and dependencies #
 ##################################
 # Next.js
@@ -95,6 +99,15 @@ build/
 out/
 artifacts/
 cache/
+
+# Environment #
+###############
+.env
+.env.local
+.env.*.local
+
+# IDE #
+#######
 typechain/
 typechain-types/
 
@@ -114,6 +127,11 @@ typechain-types/
 *.swp
 *.swo
 *~
+
+# Hardhat #
+###########
+typechain/
+typechain-types/
 .project
 .classpath
 .settings/
@@ -128,6 +146,7 @@ test-results/
 ###################
 tmp/
 temp/
+*.tmp
 *.tmp
 
 # Deployment artifacts #
